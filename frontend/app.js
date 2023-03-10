@@ -16,14 +16,15 @@ const destinationContainer = document.getElementById("destinationContainer");
 const mappedDestinations = destinationArray.map((destination, index) => {
     return (
         `<div class="destinationItem" key=${index}>
-            <img src=${destination.image} alt=${destination.name} class="destinationImage"/>
-            <h3 style="font-weight: 400;
-             margin-top: 0.7rem; 
-             display:flex; 
-             align-items:center;">
-             ${destination.name} <i class="fa-solid fa-location-dot" style="margin-left:0.6rem;
-             font-size:0.9rem;"></i>
-             </h3>
+            <div style="position: relative;">
+                <div class="imageWrapper">
+                    <h3 class="imageWrapperText">Discover ${destination.name}</h3>
+                </div>
+                <img src=${destination.image} alt=${destination.name} class="destinationImage"/>
+            </div>
+            <h3 class="destinationItemText">
+            ${destination.name} <i class="fa-solid fa-location-dot" style="margin-left:0.6rem;"></i>
+            </h3>
         </div>`
     );
 });
