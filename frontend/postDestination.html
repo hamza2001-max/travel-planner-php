@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/f34a5d3160.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="postFormContainer" action="" >
+        <form>
+            <h1 class="formHeading">Submit Your Post</h1>
+            <div class="inputField">
+                <label for="location">Location</label>
+                <input id="location" name="location"/>
+            </div>
+            <div class="inputField">
+                <label for="price">Price</label>
+                <input id="price" name/>
+            </div>
+            <div class="inputField descInputField">
+                <label for="description">Description</label>
+                <textarea id="description"></textarea>
+            </div>
+            <section class="inputField">
+                <label>Main Picture</label>
+                <div class="imageContainer">
+                    <label class="imageLabel" id="mainImageLabel"><i class="fa-regular fa-image imageLogo"></i>
+                        Upload the main picture SVG, PNG, JPG etc</label>
+                    <img id="mainUploadPreview" />
+                    <label for="mainImage" class="imageUpload">
+                        Browse
+                    </label>
+                    <input type="file" accept="image/*" id="mainImage" />
+                </div>
+            </section>
+            <section class="inputField">
+                <label>Landmark Picture</label>
+                <div class="imageContainer">
+                    <label class="imageLabel" id="landmarkImageLabel"><i class="fa-regular fa-image imageLogo"></i>
+                        Upload four landmark pictures SVG, PNG, JPG etc</label>
+                    <div class="landmarkUploadPreview">
+                        <img id="landmarkUploadPreview0" />
+                        <img id="landmarkUploadPreview1" />
+                        <img id="landmarkUploadPreview2" />
+                        <img id="landmarkUploadPreview3" />
+                    </div>
+                    <label for="landmarkImages" class="imageUpload">
+                        Browse
+                    </label>
+                    <input type="file" accept="image/*" id="landmarkImages" multiple max="4" />
+                </div>
+            </section>
+            <button type="submit" id="publish">Publish</button>
+        </form>
+    </section>
+</body>
+<script type="module" src="postDestination.js"></script>
+
+</html>

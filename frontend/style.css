@@ -4,6 +4,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  outline: none;
 }
 
 body {
@@ -69,76 +70,54 @@ body {
 }
 
 /* destinationDetail.html */
-#destinationDetails {
-  height: 100vh;
+.destinationDetailsContainer {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 1rem;
-}
-
-#destinationDetails .imageContainer {
-  width: 60vw;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  column-gap: 1rem;
-  row-gap: 1rem;
 }
 
 .imageContainer .largeImage {
+  margin-bottom: 2rem;
   border-radius: 0.6rem;
-  grid-row: 1 / span 2;
   width: 25rem;
   height: 30rem;
   object-fit: cover;
 }
 
 .imageContainer .smallImage {
-  border-radius: 0.6rem;
-  width: 14rem;
-  height: 14.5rem;
-  object-fit: cover;
+  display: none;
 }
 
-/* #destinationDetails .rightSection {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-} */
+.rightSection .textContainer {
+  margin-bottom: 2rem;
+  height: 27rem;
+  width: 25rem;
+  padding: 3rem;
+  border-radius: 0.6rem;
+  border: 2px solid black;
+}
 
-.rightSection .viewButton{
- /* position:absolute; */
- /* display: n; */
- margin-left: 17rem;
- margin-bottom: 2rem;
- font-size: 1.5rem;
+.rightSection .viewButton {
+  margin-left: 6.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 .viewButton button {
- background: transparent;
- font-size: 1.5rem;
+  background: transparent;
+  font-size: 1.5rem;
   cursor: pointer;
   border: none;
   text-transform: uppercase;
 }
 
-.rightSection .textContainer {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
-  height: 30rem;
-  width: 496px;
-  padding: 3rem;
-  border-radius: 0.6rem;
-  border: 2px solid black;
-  margin-left: 4rem;
-  margin-right: 4rem;
-}
-
 .textContainer .bookButton {
+  background-color: #000;
+  color: #fff;
   width: 100%;
   float: right;
   height: 3.8rem;
+  border: none;
   border-radius: 0.6rem;
   font-size: 1.5rem;
   font-weight: 500;
@@ -146,15 +125,134 @@ body {
 
 .textContainer .landmarkList {
   list-style-type: circle;
-  margin-top: 1.5rem;
+  margin-top: 1.1rem;
 }
 
 .landmarkList li {
   font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.textContainer p {
+  font-size: 1.3rem;
+}
+
+/* postDestination.html */
+.postFormContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.postFormContainer .formHeading{
   margin-bottom: 1.5rem;
 }
 
+.postFormContainer .inputField {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  width: 25rem;
+}
+
+.inputField label {
+  font-size: 1.1rem;
+  margin-bottom: 0.7rem;
+}
+
+.inputField textarea {
+  height: 13rem;
+  width: 25rem;
+  font-size: 1.3rem;
+  padding: 0.3rem;
+  border: 1px solid #7e7e7e;
+  border-radius: 0.2rem;
+  resize: none;
+}
+
+.inputField input {
+  height: 2.7rem;
+  font-size: 1.3rem;
+  padding: 0.3rem;
+  border: 1px solid #7e7e7e;
+  border-radius: 0.2rem;
+}
+
+.inputField .imageContainer {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.7px dashed #7e7e7e;
+  border-radius: 0.6rem;
+}
+
+.imageContainer .imageLabel {
+  display: flex;
+  align-items: center;
+  width: 17rem;
+}
+
+.imageLabel .imageLogo {
+  margin-right: 1.2rem;
+  font-size: 2rem;
+}
+
+.inputField #mainImage {
+  display: none;
+}
+
+.inputField #landmarkImages {
+  display: none;
+}
+
+.inputField .imageUpload {
+  border-radius: 2rem;
+  padding: 0.6rem;
+  cursor: pointer;
+  border: 1px solid #7e7e7e;
+}
+
+.inputField #mainUploadPreview {
+  width: 15rem;
+  height: 16rem;
+  object-fit: cover;
+  border-radius: 0.6rem;
+  display: none;
+}
+
+.inputField .landmarkUploadPreview {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr, 1fr;
+  row-gap: 0.6rem;
+  column-gap: 0.6rem;
+  display: none;
+}
+
+.inputField .landmarkUploadPreview img {
+  width: 7.5rem;
+  height: 8rem;
+  object-fit: cover;
+  border-radius: 0.4rem;
+}
+
+.postFormContainer #publish {
+  width: 8rem;
+  height: 2.5rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+  border-radius: 0.6rem;
+  border: none;
+}
+
 @media screen and (min-width: 480px) {
+  /* index.html */
   .landingPage #destinationContainer {
     display: grid;
     grid-template-columns: repeat(2, 2fr);
@@ -175,9 +273,57 @@ body {
     font-size: 1.1rem;
     font-weight: 400;
   }
+
+  /* destinationDetails.html */
+  .imageContainer .largeImage {
+    width: 35rem;
+    grid-row: 1 / span 2;
+  }
+
+  .rightSection .textContainer {
+    height: 30rem;
+    width: 566px;
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+
+  .rightSection .viewButton {
+    margin-left: 21rem;
+  }
+
+  /* postDestination.html */
+  .postFormContainer .inputField {
+    margin-bottom: 2rem;
+  }
+
+  .inputField input {
+    width: 28rem;
+  }
+
+  .inputField textarea {
+    height: 16rem;
+    width: 28rem;
+    max-height: 16rem;
+  }
+
+  .imageContainer .imageLabel {
+    width: 21rem;
+  }
+
+  .postFormContainer #publish {
+    width: 10rem;
+    height: 3rem;
+    font-size: 1.2rem;
+  }
+
+  .inputField .imageContainer {
+    height: 6rem;
+    padding: 1rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
+  /* index.html */
   .landingPage #destinationContainer {
     grid-template-columns: repeat(3, 2fr);
   }
@@ -186,11 +332,168 @@ body {
     font-size: 1rem;
     font-weight: 400;
   }
+
+  /* destinationDetails.html */
+
+  #destinationDetails {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  #destinationDetails .imageContainer {
+    width: 55vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;
+  }
+
+  .imageContainer .largeImage {
+    width: 25rem;
+    height: 30rem;
+    margin-bottom: 0;
+    grid-row: 1 / span 2;
+  }
+
+  .imageContainer .smallImage {
+    display: block;
+    border-radius: 0.6rem;
+    width: 14rem;
+    height: 14.5rem;
+    object-fit: cover;
+  }
+
+  #destinationDetails .rightSection {
+    width: 37vw;
+  }
+
+  .rightSection .textContainer {
+    height: 30rem;
+    width: 596px;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-bottom: 0;
+  }
+
+  .rightSection .viewButton {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 23rem;
+    width: 19.5rem;
+  }
+
+  .textContainer .bookButton {
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    float: right;
+    height: 3.8rem;
+    border: none;
+    border-radius: 0.6rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .textContainer .landmarkList {
+    list-style-type: circle;
+    margin-top: 1.5rem;
+  }
+
+  .landmarkList li {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .textContainer p {
+    font-size: 1.3rem;
+  }
+
+  /* postDestination.html */
+
+  .postFormContainer .inputField {
+    width: 45rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .inputField.descInputField {
+    align-items: start;
+
+  }
+  .inputField input {
+    width: 32rem;
+  }
+
+  .inputField textarea {
+    height: 16rem;
+    width: 32rem;
+  }
+
+  .imageContainer .imageLabel {
+    width: 21rem;
+  }
+
+  .postFormContainer #publish {
+    width: 10rem;
+    height: 3rem;
+    font-size: 1.2rem;
+  }
+
+  .inputField .imageContainer {
+    height: 6rem;
+    padding: 1rem;
+    width: 32rem;
+  }
+
+  .postFormContainer form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .postFormContainer #publish {
+    width: 24rem;
+    height: 3.5rem;
+    font-size: 1.3rem;
+  }
+
+.inputField .imageContainer {
+  margin-bottom: 0;
+}
+
+.postFormContainer .formHeading{
+  margin-bottom: 2.7rem;
+}
 }
 
 @media screen and (min-width: 1024px) {
+  /* index.html */
   .landingPage #destinationContainer {
     grid-template-columns: repeat(4, 2fr);
+  }
+
+  /* destinationDetails.html */
+  .destinationDetailsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+  }
+
+  #destinationDetails .imageContainer {
+    margin-right: 5.5rem;
+  }
+
+  .rightSection .textContainer {
+    width: 496px;
+  }
+
+  .rightSection .viewButton {
+    margin-top: 0;
+    margin-left: 17rem;
   }
 }
 /* min-width means, the css will affect the content in screen above the said px e.g 480px */

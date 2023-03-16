@@ -6,7 +6,7 @@ const detail = destinationArray.find(({ id }) => id == params.id);
 
 if (detail) {
     const html =
-        `<div style="display: flex;  align-items: end;">
+        `<div class="destinationDetailsContainer">
             <div class="imageContainer">
                 <img src=${detail.image} alt=${detail.name} class="largeImage"/>
                 ${detail.landmarks.map(landmark => {
