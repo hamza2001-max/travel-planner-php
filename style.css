@@ -76,6 +76,10 @@ body {
   align-items: center;
 }
 
+/* .destinationDetailsContainer .imageContainer {
+  position: relative;
+} */
+
 .imageContainer .largeImage {
   margin-bottom: 2rem;
   border-radius: 0.6rem;
@@ -85,6 +89,10 @@ body {
 }
 
 .imageContainer .smallImage {
+  display: none;
+}
+
+.imageContainer .landmarkDetails {
   display: none;
 }
 
@@ -145,7 +153,7 @@ body {
   margin-bottom: 2rem;
 }
 
-.postFormContainer .formHeading{
+.postFormContainer .formHeading {
   margin-bottom: 1.5rem;
 }
 
@@ -164,8 +172,9 @@ body {
 .inputField textarea {
   height: 13rem;
   width: 25rem;
-  font-size: 1.3rem;
+  font-size: 1.17rem;
   padding: 0.3rem;
+  letter-spacing: -0.06rem;
   border: 1px solid #7e7e7e;
   border-radius: 0.2rem;
   resize: none;
@@ -173,7 +182,7 @@ body {
 
 .inputField input {
   height: 2.7rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   padding: 0.3rem;
   border: 1px solid #7e7e7e;
   border-radius: 0.2rem;
@@ -233,8 +242,8 @@ body {
 }
 
 .inputField .landmarkUploadPreview img {
-  width: 7.5rem;
-  height: 8rem;
+  width: 7.2rem;
+  height: 7.2rem;
   object-fit: cover;
   border-radius: 0.4rem;
 }
@@ -251,6 +260,17 @@ body {
   border: none;
 }
 
+.inputField.landmarkDescription textarea {
+  height: 6rem;
+}
+
+/* .parentInputField .landmarkContainer {
+  margin-top: 1rem;
+}
+
+.landmarkLabel {
+  font-size: 1.1rem;
+} */
 @media screen and (min-width: 480px) {
   /* index.html */
   .landingPage #destinationContainer {
@@ -292,8 +312,18 @@ body {
   }
 
   /* postDestination.html */
+  .inputField #mainUploadPreview {
+    width: 17rem;
+    height: 17rem;
+  }
+
+  .inputField .landmarkUploadPreview img {
+    width: 8.2rem;
+    height: 8.2rem;
+  }
+
   .postFormContainer .inputField {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .inputField input {
@@ -301,7 +331,7 @@ body {
   }
 
   .inputField textarea {
-    height: 16rem;
+    height: 12rem;
     width: 28rem;
     max-height: 16rem;
   }
@@ -317,7 +347,9 @@ body {
   }
 
   .inputField .imageContainer {
-    height: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    width: 28rem;
     padding: 1rem;
   }
 }
@@ -351,6 +383,18 @@ body {
     row-gap: 1rem;
   }
 
+  .imageContainer .landmarkDetails {
+    position: absolute;
+  }
+
+  .imageContainer .landmarkDetails.show {
+    display: flex;
+  }
+
+  .imageContainer .landmarkDetails img {
+    width: 8rem;
+  }
+
   .imageContainer .largeImage {
     width: 25rem;
     height: 30rem;
@@ -360,6 +404,7 @@ body {
 
   .imageContainer .smallImage {
     display: block;
+    cursor: pointer;
     border-radius: 0.6rem;
     width: 14rem;
     height: 14.5rem;
@@ -413,8 +458,18 @@ body {
 
   /* postDestination.html */
 
+  .inputField #mainUploadPreview {
+    width: 21rem;
+    height: 18rem;
+  }
+
+  .inputField .landmarkUploadPreview img {
+    width: 10rem;
+    height: 10rem;
+  }
+
   .postFormContainer .inputField {
-    width: 45rem;
+    width: 40rem;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -422,14 +477,13 @@ body {
 
   .inputField.descInputField {
     align-items: start;
-
   }
   .inputField input {
     width: 32rem;
   }
 
   .inputField textarea {
-    height: 16rem;
+    height: 12rem;
     width: 32rem;
   }
 
@@ -444,7 +498,8 @@ body {
   }
 
   .inputField .imageContainer {
-    height: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     padding: 1rem;
     width: 32rem;
   }
@@ -461,13 +516,13 @@ body {
     font-size: 1.3rem;
   }
 
-.inputField .imageContainer {
-  margin-bottom: 0;
-}
+  .inputField .imageContainer {
+    margin-bottom: 0;
+  }
 
-.postFormContainer .formHeading{
-  margin-bottom: 2.7rem;
-}
+  .postFormContainer .formHeading {
+    margin-bottom: 2.7rem;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -494,6 +549,29 @@ body {
   .rightSection .viewButton {
     margin-top: 0;
     margin-left: 17rem;
+  }
+
+  .postFormContainer .parentInputField {
+    display: flex;
+    flex-direction: row;
+    width: 85rem;
+    justify-content: space-between;
+  }
+
+  .inputField.landmarkDescription {
+    align-items: start;
+  }
+
+  .landmarkContainer input {
+    width: 26rem;
+  }
+
+  .landmarkContainer textarea {
+    width: 26rem;
+  }
+
+  .landmarkContainer .inputField {
+    width: 35rem;
   }
 }
 /* min-width means, the css will affect the content in screen above the said px e.g 480px */

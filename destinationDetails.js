@@ -9,8 +9,20 @@ if (detail) {
         `<div class="destinationDetailsContainer">
             <div class="imageContainer">
                 <img src=${detail.image} alt=${detail.name} class="largeImage"/>
-                ${detail.landmarks.map(landmark => {
-                return (`<img src=${landmark.landmarkImage} class="smallImage"/>`)}).join("")}
+                ${detail.landmarks.map((landmark, index) => {
+                    return (`
+                    <div>
+                        <img src=${landmark.landmarkImage} class="smallImage" onclick="toggleDetail(${index})"/>
+                        <div class="landmarkDetails" id="landmarkDetail${index}">
+                            <img src=${landmark.landmarkImage} />
+                            <div>
+                                <li>${landmark.name}</li>
+                                <li>${landmark.description}</li>
+                            </div>
+                        </div>
+                    </div>
+                    `
+                    )}).join("")}
             </div>
             <div class="rightSection">
                 <div class="viewButton" >
@@ -47,3 +59,8 @@ descriptionBtn.addEventListener("click", () => {
     overview.style.display = 'none';
     description.style.display = 'block';
 })
+
+window.toggleDetail = function(index) {
+    const landmarkDetail = document.getElementById(`landmarkDetail${index}`);
+    landmarkDetail.classList.toggle('show');
+}
