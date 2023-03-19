@@ -9,7 +9,7 @@ mainImage.addEventListener('change', () => {
         document.getElementById('mainImageLabel').style.display = 'none';
         document.getElementById('mainUploadPreview').style.display = 'block';
     }
-})
+});
 
 landmarkImages.addEventListener('change', () => {
     for (let i = 0; i < 4; i++) {
@@ -21,4 +21,4 @@ landmarkImages.addEventListener('change', () => {
             document.querySelector(`.landmarkUploadPreview`).style.display = 'grid';
         }
     }
-})
+});

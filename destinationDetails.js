@@ -15,9 +15,13 @@ if (detail) {
                         <img src=${landmark.landmarkImage} class="smallImage" onclick="toggleDetail(${index})"/>
                         <div class="landmarkDetails" id="landmarkDetail${index}">
                             <img src=${landmark.landmarkImage} />
+                            <i class="fa-solid fa-xmark" onclick="toggleDetail(${index})"></i>
                             <div>
-                                <li>${landmark.name}</li>
-                                <li>${landmark.description}</li>
+                                <div>
+                                <h3>Visit</h3>
+                                <h3>${landmark.name}</h3>
+                                </div>
+                                <p>${landmark.description}</p>
                             </div>
                         </div>
                     </div>
@@ -64,3 +68,8 @@ window.toggleDetail = function(index) {
     const landmarkDetail = document.getElementById(`landmarkDetail${index}`);
     landmarkDetail.classList.toggle('show');
 }
+
+// window.hideDetail = function(index) {
+//     const landmarkDetail = document.getElementById(`landmarkDetail${index}`);
+//     landmarkDetail.classList.toggle('show');
+// }
