@@ -1,8 +1,9 @@
 create table destination (
+    dest_id int NOT NULL,
     dest_name varchar(100) PRIMARY KEY,
     dest_description varchar(500) NOT NULL,
     dest_cost int NOT NULL,
-    dest_Image varchar(255) NOT NULL
+    dest_image varchar(255) NOT NULL
 );
 
 create table landmark (

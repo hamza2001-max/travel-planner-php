@@ -34,7 +34,7 @@ if (isset($_POST["publish"])) {
     } elseif (!preg_match('/^[0-9]*$/', $price)) {
         $formError = "Enter a numeric value for field price";
     } else {
-        $sql_query1 = "INSERT INTO destination (dest_name, dest_description, dest_cost, dest_Image) VALUES (?, ?, ?, ?)";
+        $sql_query1 = "INSERT INTO destination (dest_name, dest_description, dest_cost, dest_image) VALUES (?, ?, ?, ?)";
         $sql_query2 = "INSERT INTO landmark (land_name, land_description, land_image, dest_name) VALUES (?, ?, ?, ?)";
 
         if (($stmt1 = mysqli_prepare($connection, $sql_query1)) && ($stmt2 = mysqli_prepare($connection, $sql_query2))) {
@@ -51,7 +51,7 @@ if (isset($_POST["publish"])) {
                 mysqli_stmt_execute($stmt2);
                 if (mysqli_stmt_affected_rows($stmt2) > 0) {
                     $formSuccess = "row affected";
-                    header("Location: http://localhost/travelPlanner/");
+                    // header("Location: http://localhost/travelPlanner/");
                 } else {
                     $formError = "Could not submit values";
                 }
