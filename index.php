@@ -1,4 +1,5 @@
 <?php
+require_once './includes/nav.php';
 require_once './includes/database.php';
 $sql_query = "SELECT * FROM destination";
 $target_dir = "./staticModels/";
@@ -12,7 +13,7 @@ $result = mysqli_query($connection, $sql_query);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
     <script src="https://kit.fontawesome.com/f34a5d3160.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
@@ -25,7 +26,6 @@ $result = mysqli_query($connection, $sql_query);
         <section class="destinationSection" id="destinationItemID">
             <div>
                 <h1 class="destinationText">Popular Destinations<i class="fa-solid fa-plane-up fa-rotate-by" style="margin-left: 1rem; --fa-rotate-angle: 45deg;"></i></h1>
-                <a href="./postDestination.php">click me</a>
                 <div id="destinationContainer">
                     <?php
                     if ($result->num_rows > 0) {
@@ -33,7 +33,7 @@ $result = mysqli_query($connection, $sql_query);
                             $target_file = $row["dest_image"];
                             $target_image = $target_dir . $target_file;
                     ?>
-                            <a href="/travelPlanner/destinationDetails.php?dest_name=<?= $row["dest_name"] ?>">
+                            <a href="/travelPlanner/destinationDetails.php?dest_name=<?= $row["dest_name"] ?>" style="color:black;">
                                 <div class="destinationItem" key=<?= $row["dest_name"] ?>>
                                     <div style="position: relative;">
                                         <div class="imageWrapper">

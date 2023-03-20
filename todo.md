@@ -4,6 +4,8 @@
 - [ ] postDestination.php    
     - [ ] create banners for successful publish and errors.
 - [ ] destinationDetails.php
-    - [ ] recieve data from database.
-    - [ ] display the data in html body.
-
+    - [x] recieve data from database.
+    - [x] display the data in html body.
+- [ ] nav.php
+    - [ ] design a responsive navbar.
+    - [x] add functionalities to it.

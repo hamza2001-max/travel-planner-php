@@ -8,9 +8,99 @@
 }
 
 body {
-  font-family: "roboto", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-    sans-serif;
+  font-family: "roboto", "Gill Sans MT", "Trebuchet MS", sans-serif;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+/* nav.php */
+nav {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+nav .navContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.8rem;
+  padding-bottom: 1.8rem;
+}
+
+.navContainer.show .sideNav {
+  display: flex;
+}
+
+.navContainer.show .fa-bars {
+  margin-right: 9rem;
+  color: #fff;
+}
+
+.navContainer .fa-bars {
+  font-size: 1.7rem;
+  cursor: pointer;
+  z-index: 40;
+  transition: all 0.2s ease-in-out;
+}
+
+.navContainer .fa-bars:hover {
+  transform: scale(1.1);
+}
+
+.navContainer .sideNav {
+  display: none;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 13rem;
+  background-color: #000;
+  color: #fff;
+  z-index: 35;
+}
+
+.sideNav .fa-house-user {
+  font-size: 1.3rem;
+}
+
+.sideNav .fa-plus {
+  font-size: 1.3rem;
+}
+/* .navContainer .sideNav.show {
+  display: flex;
+} */
+
+.sideNav ul {
+  margin-top: 6rem;
+}
+
+.sideNav ul .sideNavRow {
+  width: 7rem;
+  cursor: pointer;
+  margin-bottom: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sideNav li {
+  list-style: none;
+  font-size: 1.1rem;
+}
+
+/* index.html */
 
 .landingPage .heroImage {
   height: 100vh;
@@ -145,7 +235,7 @@ body {
 .postFormContainer {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  padding-top: 6rem;
   margin-bottom: 2rem;
 }
 
@@ -184,7 +274,7 @@ body {
   border-radius: 0.2rem;
 }
 
-.inputField #price{
+.inputField #price {
   appearance: textfield;
 }
 
@@ -265,6 +355,20 @@ body {
 }
 
 @media screen and (min-width: 480px) {
+  /* nav.php */
+  .navContainer .sideNav {
+    width: 17rem;
+  }
+
+  .navContainer.show .fa-bars {
+    margin-right: 12.5rem;
+    color: #fff;
+  }
+
+  .sideNav ul .sideNavRow {
+    width: 7.5em;
+  }
+
   /* index.html */
   .landingPage #destinationContainer {
     display: grid;

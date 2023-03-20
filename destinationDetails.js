@@ -14,7 +14,6 @@ descriptionBtn.addEventListener("click", () => {
 })
 
 window.toggleDetail = function(index) {
-    console.log("hey");
     const landmarkDetail = document.getElementById(`destinationDetail${index}`);
     landmarkDetail.classList.toggle('show');
 }
