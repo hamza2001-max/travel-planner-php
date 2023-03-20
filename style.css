@@ -19,6 +19,10 @@ a:visited {
   text-decoration: none;
 }
 
+li{
+  list-style: none;
+}
+
 /* nav.php */
 nav {
   position: fixed;
@@ -36,6 +40,10 @@ nav .navContainer {
   padding-right: 1rem;
   padding-top: 1.8rem;
   padding-bottom: 1.8rem;
+}
+
+.navContainer .navElements{
+  display: none;
 }
 
 .navContainer.show .sideNav {
@@ -71,16 +79,9 @@ nav .navContainer {
   z-index: 35;
 }
 
-.sideNav .fa-house-user {
+.sideNavRow i {
   font-size: 1.3rem;
 }
-
-.sideNav .fa-plus {
-  font-size: 1.3rem;
-}
-/* .navContainer .sideNav.show {
-  display: flex;
-} */
 
 .sideNav ul {
   margin-top: 6rem;
@@ -96,7 +97,6 @@ nav .navContainer {
 }
 
 .sideNav li {
-  list-style: none;
   font-size: 1.1rem;
 }
 
@@ -452,6 +452,27 @@ nav .navContainer {
 }
 
 @media screen and (min-width: 768px) {
+  /* nav.php */
+  .navContainer .fa-bars {
+    display: none;
+  }
+
+  .navContainer.show .sideNav {
+    display: none;
+  }
+
+  .navContainer .navElements{
+    display: flex;
+    width: 13rem;
+    font-size: 1rem;
+    justify-content: space-between;
+  }
+
+  nav .navContainer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   /* index.html */
   .landingPage #destinationContainer {
     grid-template-columns: repeat(3, 2fr);

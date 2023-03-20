@@ -17,8 +17,16 @@
 <body>
     <nav>
         <section class="navContainer" id="navContainer">
-            <h1>travelPlanner</h1>
+            <h2>travelPlanner</h2>
             <i class="fa-solid fa-bars" onclick="toggleSideNav()"></i>
+            <ul class="navElements">
+                <a href="/travelPlanner/index.php" style="color:black;">
+                    <h2>Home</h2>
+                </a>
+                <a href="./postDestination.php" style="color:black;">
+                    <h2>Create</h2>
+                </a>
+            </ul>
             <div class="sideNav">
                 <ul>
                     <div class="sideNavRow">

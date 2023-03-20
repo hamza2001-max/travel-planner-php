@@ -7,5 +7,5 @@
     - [x] recieve data from database.
     - [x] display the data in html body.
 - [ ] nav.php
-    - [ ] design a responsive navbar.
+    - [x] design a responsive navbar.
     - [x] add functionalities to it.
