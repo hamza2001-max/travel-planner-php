@@ -80,5 +80,5 @@ $result_destination = mysqli_query($connection, $sql_query_destination);
     </div>
 </body>
 <script src="destinationDetails.js" type="module"></script>
-
 </html>
+<?php require_once './includes/footer.php'?>

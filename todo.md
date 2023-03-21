@@ -6,6 +6,7 @@
 - [ ] destinationDetails.php
     - [x] recieve data from database.
     - [x] display the data in html body.
+    - [ ] fix the styling.
 - [ ] nav.php
     - [x] design a responsive navbar.
     - [x] add functionalities to it.
