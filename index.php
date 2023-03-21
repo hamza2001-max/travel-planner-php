@@ -54,6 +54,5 @@ $result = mysqli_query($connection, $sql_query);
         </section>
     </section>
 </body>
-<!-- <script src="index.js" type="module"></script> -->
-
 </html>
+<?php require_once './includes/footer.php'?>

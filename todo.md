@@ -9,3 +9,8 @@
 - [ ] nav.php
     - [x] design a responsive navbar.
     - [x] add functionalities to it.
+    - [ ] solve the z-index problems in index and post page.
+- [ ] footer.php
+    - [x] design footer.
+    - [x] make it responsive.
+    - [ ] add functionalities.
