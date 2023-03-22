@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
     <script src="https://kit.fontawesome.com/f34a5d3160.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
@@ -26,6 +22,9 @@
                 <a href="./postDestination.php" style="color:black;">
                     <h2>Create</h2>
                 </a>
+                <a href="./signup.php" style="color:black;">
+                    <h2>Signup</h2>
+                </a>
             </ul>
             <div class="sideNav">
                 <ul>
@@ -41,16 +40,19 @@
                             <li>Create</li>
                         </a>
                     </div>
+                    <div class="sideNavRow">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        <a href="./signup.php" style="color:white;">
+                            <li>Signup</li>
+                        </a>
+                    </div>
                 </ul>
             </div>
         </section>
     </nav>
-</body>
-<script>
-    window.toggleSideNav = function(index) {
-        const landmarkDetail = document.getElementById(`navContainer`);
-        landmarkDetail.classList.toggle('show');
-    }
-</script>
-
-</html>
+    <script>
+        window.toggleSideNav = function(index) {
+            const landmarkDetail = document.getElementById(`navContainer`);
+            landmarkDetail.classList.toggle('show');
+        }
+    </script>

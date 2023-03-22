@@ -1,17 +1,25 @@
 - [ ] index.php
-    - [x] recieve data from database.
-    - [x] display the data in html body.
-- [ ] postDestination.php    
-    - [ ] create banners for successful publish and errors.
+  - [x] recieve data from database.
+  - [x] display the data in html body.
+  - [ ] apply margins(top and bottom) to destination container.
+  - [ ] change the landing image.
+- [ ] postDestination.php
+  - [ ] create banners for successful publish and errors.
 - [ ] destinationDetails.php
-    - [x] recieve data from database.
-    - [x] display the data in html body.
-    - [ ] fix the styling.
+  - [x] recieve data from database.
+  - [x] display the data in html body.
+  - [ ] fix the styling.
 - [ ] nav.php
-    - [x] design a responsive navbar.
-    - [x] add functionalities to it.
-    - [ ] solve the z-index problems in index and post page.
+  - [x] design a responsive navbar.
+  - [x] add functionalities to it.
+  - [x] solve the z-index problems in index and post page.
 - [ ] footer.php
-    - [x] design footer.
-    - [x] make it responsive.
-    - [ ] add functionalities.
+  - [x] design footer.
+  - [x] make it responsive.
+  - [x] add functionalities.
+- [ ] signup.php
+  - [ ] change the classNames.
+  - [ ] make it responsive.
+- [ ] sql
+  - [ ] use the sql functions where necessary.
+  - [ ] create table for users and admin.
