@@ -9,19 +9,41 @@
     <title>Document</title>
 </head>
 <body>
-<form action="">
-        <div>
-            <h1>Welcome to travelPlanner</h1>
-            <h1>Login to continue</h1>
-            <p>Don't have an account? <a href="/travelPlanner/signup.php">Signup.</a></p>
-        </div>
-        <div>
-            <label for="">Username</label>
-            <input type="text" name="userName" requied>
-            <label for="">Password</label>
-            <input type="password" name="password" required>
-        </div>
-        <button>Login</button>
-    </form>
+    <section class="accountWrapper">
+        <section class="accountContainer">
+            <div class="imageContainer">
+                <img src="./staticModels/landingImage.jpg" alt="">
+                <div class="blur">
+                    <h2>
+                        <i class="fa-sharp fa-solid fa-play"></i>Welcome back to your 
+                        <span style="color:black;"> travelPlanner.</span>
+                    </h2>
+                    <p>Continue with your travel plans.</p>
+                </div>
+            </div>
+            <section class="formContainer">
+                <form action="">
+                    <div class="accountText">
+                        <h2>Welcome to travelPlanner</h2>
+                        <h2>Login to continue</h2>
+                    <p>Don't have an account? <a href="/travelPlanner/signup.php" style="font-weight: 500; 
+                color:black;
+                text-decoration: underline; ">Signup.</a></p>
+                </div>
+                <div class="accountInput">
+                    <div>
+                        <label for="userName">Username</label>
+                        <input type="text" name="userName" id="userName" required>
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+                </div>
+                <button class="accountBtn">Signin</button>
+            </form>
+        </section>
+        </section>
+    </section>
 </body>
 </html>

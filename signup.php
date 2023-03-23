@@ -11,37 +11,42 @@
 </head>
 
 <body>
-    <section class="signupContainer">
-        <div class="imageContainer">
-            <img src="./staticModels/landingImage.jpg" alt="">
-            <div class="blur">
-                <h1>
-                    <i class="fa-sharp fa-solid fa-play"></i>Plan and book your trips with ease
-                    <span style="color:black;"> with travelPlanner.</span>
-                </h1>
-                <p>join our community.</p>
-            </div>
-        </div>
-        <form action="">
-            <div class="signupText">
-                <h1>Welcome to travelPlanner</h1>
-                <h1>Sign in to continue</h1>
-                <p>Already have an account? <a href="/travelPlanner/login.php" style="font-weight: 500; 
-                color:black;
-                text-decoration: underline; ">Login.</a></p>
-            </div>
-            <div class="signupInput">
-                <div>
-                    <label for="userName">Username</label>
-                    <input type="text" name="userName" id="userName" required>
-                </div>
-                <div>
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" required>
+    <section class="accountWrapper">
+        <section class="accountContainer">
+            <div class="imageContainer">
+                <img src="./staticModels/landingImage.jpg" alt="">
+                <div class="blur">
+                    <h2>
+                        <i class="fa-sharp fa-solid fa-play"></i>Plan and book your trips with ease
+                        <span style="color:black;"> with travelPlanner.</span>
+                    </h2>
+                    <p>join our community.</p>
                 </div>
             </div>
-            <button class="signupBtn">Signin</button>
-        </form>
+            <section class="formContainer">
+                <form action="">
+                    <div class="accountText">
+                        <h2>Welcome to travelPlanner</h2>
+                        <h2>Sign in to continue</h2>
+                        <p>Already have an account? <a href="/travelPlanner/login.php" style="
+                        font-weight: 500; 
+                        color:black;
+                        text-decoration: underline; ">Login.</a></p>
+                    </div>
+                    <div class="accountInput">
+                        <div>
+                            <label for="userName">Username</label>
+                            <input type="text" name="userName" id="userName" required>
+                        </div>
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" required>
+                        </div>
+                    </div>
+                    <button class="accountBtn">Signin</button>
+                </form>
+            </section>
+        </section>
     </section>
 </body>
 

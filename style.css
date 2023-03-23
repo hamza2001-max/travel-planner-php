@@ -175,10 +175,6 @@ footer .footerDetails .footerText {
   object-fit: cover;
 }
 
-/* .landingPage #destinationContainer {
-  z-index: ;
-} */
-
 #destinationContainer .destinationItem {
   margin-bottom: 2rem;
   cursor: pointer;
@@ -426,34 +422,34 @@ footer .footerDetails .footerText {
 }
 
 /* signup.php */
-.signupContainer {
+.accountWrapper .accountContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
-.imageContainer{
-  width: 20rem;
-  height: 25rem;
+.imageContainer {
   position: relative;
+  height: 25rem;
 
 }
 
 .imageContainer img {
   object-fit: cover;
+  height: 100%;
   width: 20rem;
-  height: 25rem;
   border-radius: 0.2rem;
 }
 
-.imageContainer .blur{
+.imageContainer .blur {
   color: #fff;
   padding: 1rem;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   height: 60%;
   width: 65%;
   border-radius: 0.2rem;
@@ -471,11 +467,11 @@ footer .footerDetails .footerText {
   margin-top: 1rem;
 }
 
-.signupContainer form {
+.accountContainer form {
   width: 20rem;
 }
 
-.signupContainer .signupBtn {
+.accountContainer .accountBtn {
   width: 100%;
   height: 2.7rem;
   font-size: 1rem;
@@ -487,22 +483,22 @@ footer .footerDetails .footerText {
   cursor: pointer;
 }
 
-.signupContainer .signupText {
+.accountContainer .accountText {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
-.signupContainer .signupText p {
+.accountContainer .accountText p {
   margin-top: 0.7rem;
 }
 
-.signupContainer .signupInput div {
+.accountContainer .accountInput div {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.2rem;
 }
 
-.signupInput div input {
+.accountInput div input {
   height: 2.7rem;
 
   font-size: 1.1rem;
@@ -512,11 +508,11 @@ footer .footerDetails .footerText {
   border-radius: 0.2rem;
 }
 
-.signupInput label {
+.accountInput label {
   margin-bottom: 0.4rem;
 }
 
-.signupInput #password {
+.accountInput #password {
   background-color: #f1f1f1ec;
   border: none;
   border-radius: 0.2rem;
@@ -617,6 +613,28 @@ footer .footerDetails .footerText {
     width: 28rem;
     padding: 1rem;
   }
+
+  /* signup.php */
+  .imageContainer {
+    height: 28rem;
+  }
+
+  .imageContainer img {
+    width: 23rem;
+    height: 100%;
+  }
+
+  .accountContainer form {
+    width: 23rem;
+  }
+
+  .accountContainer .accountBtn {
+    margin-top: 0.7rem;
+  }
+
+  .accountContainer .accountText p {
+    margin-top: 0.8rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -642,7 +660,6 @@ footer .footerDetails .footerText {
   }
 
   /* footer.php */
-
   footer {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -860,6 +877,61 @@ footer .footerDetails .footerText {
   .postFormContainer .formHeading {
     margin-bottom: 2.7rem;
   }
+
+  /* signup.php */
+  .accountWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .accountWrapper .accountContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 48rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .imageContainer {
+    height: 36rem;
+  }
+
+  .imageContainer img {
+    width: 24rem;
+    height: 100%;
+  }
+
+  .imageContainer .blur {
+    height: 40%;
+    width: 75%;
+  }
+
+  .accountContainer form {
+    width: 18rem;
+  }
+
+  .accountContainer .accountBtn {
+    margin-top: 0.8rem;
+  }
+
+  .accountContainer .accountText {
+    margin-top: 0;
+  }
+
+  .accountContainer .accountText p {
+    margin-top: 1rem;
+  }
+
+  .accountContainer .accountInput div {
+    margin-bottom: 1.6rem;
+  }
+
+  .accountInput label {
+    margin-bottom: 0.8rem;
+  }
+
 }
 
 @media screen and (min-width: 1024px) {
@@ -921,6 +993,69 @@ footer .footerDetails .footerText {
 
   .landmarkContainer .inputField {
     width: 35rem;
+  }
+
+  /* signup.php */
+  .accountWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+
+  .accountWrapper .accountContainer {
+    width: 100%;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+  }
+  
+  .accountContainer .imageContainer {
+    height: 100vh;
+  }
+
+  .imageContainer img {
+    object-fit: cover;
+    width: 50rem;
+    height: 100%;
+    border-radius: 0rem;
+  }
+  
+  .accountContainer .formContainer {
+    width: 50rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .imageContainer .blur {
+    padding: 2rem;
+    height: 60%;
+  }
+  
+  .blur h2 {
+    font-size: 3.5rem;
+  }
+  
+  .blur p {
+    font-size: 2rem;
+  }  
+
+  .accountContainer form {
+    width: 30rem;
+  }
+
+  .accountContainer .accountText h2 {
+    font-size: 2rem;
+  }
+  
+  .accountContainer .accountText p{
+    font-size: 1.4rem;
+  }
+  
+  .accountInput label {
+    font-size: 1.3rem;
+  }
+  .accountContainer .accountBtn {
+    height: 3.2rem;
+    font-size: 1.3rem;
   }
 }
 /* min-width means, the css will affect the content in screen above the said px e.g 480px */
