@@ -1,34 +1,40 @@
-- [ ] index.php
-  - [x] recieve data from database.
-  - [x] display the data in html body.
-  - [ ] apply margins(top and bottom) to destination container.
-  - [ ] correct the styling for destination item padding on responsive change.
-  - [ ] change the landing image.
+- [x] index.php
+  - [x] apply margins(top and bottom) to destination container.
+  - [x] correct the styling for destination item padding on responsive change.
+  - [x] change the landing image.
 
 - [ ] postDestination.php
   - [ ] create banners for successful publish and errors.
   - [ ] on error retain the input values and vice versa.
   - [ ] change the image upload method.
+  - [x] fix type file input st on large.
 
-- [ ] destinationDetails.php
-  - [x] recieve data from database.
-  - [x] display the data in html body.
-  - [ ] fix the styling.
+- [x] destinationDetails.php
+  - [x] fix the styling.
+  - [ ] add the functionality to book now button.
 
-- [ ] nav.php
-  - [x] design a responsive navbar.
-  - [x] add functionalities to it.
-  - [x] solve the z-index problems in index and post page.
+- [x] nav.php
+  - [x] solve the space-between problem.
 
-- [ ] footer.php
-  - [x] design footer.
-  - [x] make it responsive.
-  - [x] add functionalities.
+- [x] footer.php
+  - [x] fix the styling.
 
 - [ ] signup.php
-  - [x] change the classNames.
-  - [ ] make it responsive.
+  - [x] fix the styling(the access margin at the end and the min:1024px).
+  - [x] complete the signup functionalities.
+
+- [x] admin.php
+  - [x] complete the admin login functionalities.
+  - [x] copy the design from signup.
+
+- [ ] login.php
+  - [x] fix the styling(the access margin at the end and the min:1024px).
+  - [x] complete the login functionalities.
 
 - [ ] sql
-  - [ ] use the sql functions where necessary.
-  - [ ] create table for users and admin.
+  - [x] use the sql functions where necessary.
+  - [x] create table for users and admin.
+  - [ ] make username unique for signup and login.
+
+- [ ] style
+  - [ ] style errors.

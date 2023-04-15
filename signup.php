@@ -1,3 +1,50 @@
+<?php
+require_once './includes/database.php';
+$form_success = "";
+$form_error = "";
+$value = "";
+if (isset($_POST["signup"])) {
+    $fullName = htmlspecialchars(trim($_POST["fullName"]));
+    $password = htmlspecialchars(trim($_POST["password"]));
+
+    if (!empty($fullName) || !empty($password)) {
+        if (strlen($fullName) < 8 || strlen($password) < 8) {
+            $form_error = "fields must be equal or greater than eight characters.";
+        } elseif (!preg_match("#[0-9]+#", $password)) {
+            $form_error = "Password must include at least one number.";
+        } elseif (!preg_match("#[a-zA-Z]+#", $password)) {
+            $form_error = "Password must include at least one letter.";
+        } else {
+            $sql_query1 = "INSERT INTO users (user_full_name, user_password) values (?, ?)";
+            if ($stmt = mysqli_prepare($connection, $sql_query1)) {
+                mysqli_stmt_bind_param($stmt, "ss", $fullName, $password);
+                mysqli_stmt_execute($stmt);
+                if (mysqli_stmt_affected_rows($stmt) > 0) {
+                    $form_success = "rows have been affected succesfully";
+                    $sql_query2 = "SELECT * FROM users where user_full_name = ? AND user_password = ?";
+                    if ($stmt2 = mysqli_prepare($connection, $sql_query2)) {
+                        mysqli_stmt_bind_param($stmt2, "ss", $fullName, $password);
+                        mysqli_stmt_execute($stmt2);
+                    } else {
+                        $form_error = "error occured during searching of the user in db.";
+                    }
+                    $result = mysqli_stmt_get_result($stmt2);
+                    if ($result->num_rows == 1) {
+                        $_SESSION['user'] = $result->fetch_assoc();
+                        header("Location: http://localhost/travelPlanner/index.php");
+                    }
+                } else {
+                    $form_error = "error occured";
+                }
+                mysqli_stmt_close($stmt);
+            }
+        }
+    } else {
+        $form_error = "fill up the required inputs.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,26 +71,32 @@
                 </div>
             </div>
             <section class="formContainer">
-                <form action="">
+                <form action="" method="post">
                     <div class="accountText">
                         <h2>Welcome to travelPlanner</h2>
-                        <h2>Sign in to continue</h2>
+                        <h2>Sign up to continue</h2>
                         <p>Already have an account? <a href="/travelPlanner/login.php" style="
                         font-weight: 500; 
                         color:black;
                         text-decoration: underline; ">Login.</a></p>
                     </div>
                     <div class="accountInput">
+                        <?= $form_error ?>
+                        <?= $form_success ?>
                         <div>
-                            <label for="userName">Username</label>
-                            <input type="text" name="userName" id="userName" required>
+                            <label for="fullName">Full Name</label>
+                            <input type="text" name="fullName" id="userName" required>
                         </div>
                         <div>
                             <label for="password">Password</label>
                             <input type="password" name="password" id="password" required>
                         </div>
                     </div>
-                    <button class="accountBtn">Signin</button>
+                    <button class="accountBtn" name="signup">Signup</button>
+                    <p>Go to <a href="/travelPlanner/index.php" style="font-weight: 500; 
+                        color:black;
+                        text-decoration: underline; ">
+                            Home.</a></p>
                 </form>
             </section>
         </section>

@@ -3,6 +3,9 @@ require_once './nav.php';
 require_once './includes/database.php';
 $formError = "";
 $formSuccess = "";
+print_r($_SESSION['user']);
+
+if(!isset($_SESSION['admin'])) header("Location: http://localhost/travelPlanner/index.php");
 
 if (isset($_POST["publish"])) {
     $location = $description = $price =  $mainImage =  $mainImage = "";
@@ -66,7 +69,7 @@ if (isset($_POST["publish"])) {
 ?>
 
 <section class="postFormContainer">
-    <form action="" action="" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data">
         <h1 class="formHeading">Submit Your Post</h1>
         <?= $formError ?>
         <?= $formSuccess ?>

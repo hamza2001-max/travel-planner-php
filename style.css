@@ -109,6 +109,7 @@ footer {
   padding-right: 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  margin-top: 3rem;
 }
 
 footer hr {
@@ -187,6 +188,7 @@ footer .footerDetails .footerText {
   justify-content: center;
   align-items: center;
   border-radius: 0.6rem;
+  text-transform: capitalize;
   height: 18rem;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -203,6 +205,7 @@ footer .footerDetails .footerText {
   margin-top: 0.7rem;
   display: flex;
   align-items: center;
+  text-transform: capitalize;
 }
 
 .landingPage .destinationSection {
@@ -231,6 +234,7 @@ footer .footerDetails .footerText {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 8rem;
 }
 
 .imageContainer .largeImage {
@@ -430,20 +434,19 @@ footer .footerDetails .footerText {
   margin-bottom: 2rem;
 }
 
-.imageContainer {
+.accountContainer .imageContainer {
   position: relative;
   height: 25rem;
-
 }
 
-.imageContainer img {
+.accountContainer .imageContainer img {
   object-fit: cover;
   height: 100%;
   width: 20rem;
   border-radius: 0.2rem;
 }
 
-.imageContainer .blur {
+.accountContainer .imageContainer .blur {
   color: #fff;
   padding: 1rem;
   position: absolute;
@@ -615,11 +618,11 @@ footer .footerDetails .footerText {
   }
 
   /* signup.php */
-  .imageContainer {
+  .accountContainer .imageContainer {
     height: 28rem;
   }
 
-  .imageContainer img {
+  .accountContainer .imageContainer img {
     width: 23rem;
     height: 100%;
   }
@@ -649,9 +652,12 @@ footer .footerDetails .footerText {
 
   .navContainer .navElements {
     display: flex;
-    width: 13rem;
     font-size: 1rem;
     justify-content: space-between;
+  }
+
+  .navContainer .navElements h2 {
+    margin-left: 1.5rem;
   }
 
   nav .navContainer {
@@ -698,6 +704,8 @@ footer .footerDetails .footerText {
     display: flex;
     align-items: center;
     padding: 1rem;
+    padding-top: 19rem;
+    margin-bottom: 22rem;
   }
 
   #destinationDetails .imageContainer {
@@ -710,11 +718,11 @@ footer .footerDetails .footerText {
     row-gap: 1rem;
   }
 
-  .imageContainer {
+  #destinationDetails .imageContainer {
     position: relative;
   }
 
-  .imageContainer .landmarkDetails {
+  #destinationDetails .imageContainer .landmarkDetails {
     position: absolute;
     transform: translateX(-50%, -50%);
     top: 25%;
@@ -725,12 +733,11 @@ footer .footerDetails .footerText {
     padding: 1rem;
   }
 
-  .imageContainer .landmarkDetails.show {
+  #destinationDetails .imageContainer .landmarkDetails.show {
     display: flex;
-    width: 30rem;
   }
 
-  .imageContainer .landmarkDetails img {
+  #destinationDetails .imageContainer .landmarkDetails img {
     width: 14rem;
     height: 14rem;
     border-radius: 0.6rem;
@@ -738,7 +745,7 @@ footer .footerDetails .footerText {
     margin-right: 2rem;
   }
 
-  .imageContainer .landmarkDetails h3 {
+  #destinationDetails .imageContainer .landmarkDetails h3 {
     margin-bottom: 0.4rem;
   }
 
@@ -749,14 +756,14 @@ footer .footerDetails .footerText {
     right: 1rem;
   }
 
-  .imageContainer .largeImage {
+  #destinationDetails .imageContainer .largeImage {
     width: 25rem;
     height: 30rem;
     margin-bottom: 0;
     grid-row: 1 / span 2;
   }
 
-  .imageContainer .smallImage {
+  #destinationDetails .imageContainer .smallImage {
     display: block;
     cursor: pointer;
     border-radius: 0.6rem;
@@ -775,6 +782,7 @@ footer .footerDetails .footerText {
     margin-left: 4rem;
     margin-right: 4rem;
     margin-bottom: 0;
+    padding-bottom: 22rem;
   }
 
   .rightSection .viewButton {
@@ -894,16 +902,16 @@ footer .footerDetails .footerText {
     margin-bottom: 1rem;
   }
 
-  .imageContainer {
+  .accountContainer .imageContainer {
     height: 36rem;
   }
 
-  .imageContainer img {
+  .accountContainer .imageContainer img {
     width: 24rem;
     height: 100%;
   }
 
-  .imageContainer .blur {
+  .accountContainer .imageContainer .blur {
     height: 40%;
     width: 75%;
   }
@@ -941,6 +949,7 @@ footer .footerDetails .footerText {
     padding-right: 2rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    margin-top: 3rem;
   }
 
   .footerLinks {
@@ -953,6 +962,12 @@ footer .footerDetails .footerText {
   }
 
   /* destinationDetails.html */
+  #destinationDetails {
+    /* padding-top: 0rem; */
+    padding-top: 0rem;
+    margin-bottom: 0rem;
+  }
+
   .destinationDetailsContainer {
     display: flex;
     flex-direction: row;
@@ -1000,6 +1015,7 @@ footer .footerDetails .footerText {
     display: flex;
     justify-content: center;
     align-items: start;
+    overflow: hidden;
   }
 
   .accountWrapper .accountContainer {
@@ -1012,7 +1028,7 @@ footer .footerDetails .footerText {
     height: 100vh;
   }
 
-  .imageContainer img {
+  .accountContainer .imageContainer img {
     object-fit: cover;
     width: 50rem;
     height: 100%;
@@ -1025,7 +1041,12 @@ footer .footerDetails .footerText {
     justify-content: center;
   }
 
-  .imageContainer .blur {
+  .formContainer p{
+    margin-top: 1.1rem;
+    font-size: 1.4rem;
+  }
+
+  .accountContainer .imageContainer .blur {
     padding: 2rem;
     height: 60%;
   }
@@ -1040,6 +1061,11 @@ footer .footerDetails .footerText {
 
   .accountContainer form {
     width: 30rem;
+  }
+
+  .accountContainer .accountText h1 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
   }
 
   .accountContainer .accountText h2 {

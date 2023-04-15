@@ -1,19 +1,19 @@
 <?php
 require_once './includes/database.php';
+$form_success = "";
 $form_error = "";
-// print_r($_SESSION['user']);
 
-if (isset($_POST["login"])) {
+if (isset($_POST["admin"])) {
     $fullName = htmlspecialchars(trim($_POST["fullName"]));
     $password = htmlspecialchars(trim($_POST["password"]));
     if (!empty($fullName) || !empty($password)) {
-        $sql_query = "SELECT * FROM users WHERE user_full_name = ? AND user_password = ?";
+        $sql_query = "SELECT * FROM admin WHERE admin_name = ? AND admin_password = ?";
         if ($stmt = mysqli_prepare($connection, $sql_query)) {
             mysqli_stmt_bind_param($stmt, "ss", $fullName, $password);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             if ($result->num_rows == 1) {
-                $_SESSION['user'] = $result->fetch_assoc();
+                $_SESSION['admin'] = 'admin';
                 header("Location: http://localhost/travelPlanner/index.php");
             } else {
                 $form_error = "user was not found";
@@ -42,34 +42,30 @@ if (isset($_POST["login"])) {
     <section class="accountWrapper">
         <section class="accountContainer">
             <div class="imageContainer">
-                <img src="./staticModels/plane.jpg" alt="">
+                <img src="./staticModels/landingImage.jpg" alt="">
                 <div class="blur">
                     <h2>
-                        <i class="fa-sharp fa-solid fa-play"></i>Welcome back to your
-                        <span style="color:black;"> travelPlanner.</span>
+                        <i class="fa-sharp fa-solid fa-play"></i>Plan and book your trips with ease
+                        <span style="color:black;"> with travelPlanner.</span>
                     </h2>
-                    <p>Continue with your travel plans.</p>
+                    <p>Access the site.</p>
                 </div>
             </div>
             <section class="formContainer">
                 <form action="" method="post">
                     <div class="accountText">
-                        <h2>Welcome to travelPlanner</h2>
-                        <h2>Login to continue</h2>
-                        <p>Don't have an account? <a href="/travelPlanner/signup.php" style="font-weight: 500; 
+                        <h2>Welcome Admin.</h2>
+                        <h2>Login to continue.</h2>
+                        <p>Login as a <a href="/travelPlanner/login.php" style="
+                        font-weight: 500; 
                         color:black;
-                        text-decoration: underline; ">
-                        Signup.</a></p>
-                        <h1>OR</h1>
-                        <p>Login as an admin. <a href="/travelPlanner/admin.php" style="font-weight: 500; 
-                        color:black;
-                        text-decoration: underline; ">
-                        Admin.</a></p>
+                        text-decoration: underline; ">User.</a></p>
                     </div>
                     <div class="accountInput">
                         <?= $form_error ?>
+                        <?= $form_success ?>
                         <div>
-                            <label for="userName">Username</label>
+                            <label for="fullName">Full Name</label>
                             <input type="text" name="fullName" id="userName" required>
                         </div>
                         <div>
@@ -77,11 +73,7 @@ if (isset($_POST["login"])) {
                             <input type="password" name="password" id="password" required>
                         </div>
                     </div>
-                    <button class="accountBtn" name="login">Login</button>
-                    <p>Go to <a href="/travelPlanner/index.php" style="font-weight: 500; 
-                        color:black;
-                        text-decoration: underline; ">
-                        Home.</a></p>
+                    <button class="accountBtn" name="admin">Login</button>
                 </form>
             </section>
         </section>

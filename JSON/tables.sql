@@ -14,3 +14,15 @@ create table landmark (
     dest_name varchar(100) NOT NULL,
     FOREIGN KEY (dest_name) REFERENCES destination(dest_name) 
 );
+
+create table users (
+	user_id int AUTO_INCREMENT PRIMARY KEY,
+    user_full_name varchar(35) NOT NULL,
+    user_password varchar(35) NOT NULL
+);
+
+create table admin (
+    admin_id int AUTO_INCREMENT PRIMARY KEY,
+    admin_name varchar(35) NOT NULL,
+    admin_password varchar(35) NOT NULL
+);
