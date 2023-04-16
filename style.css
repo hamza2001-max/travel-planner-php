@@ -8,10 +8,167 @@
 }
 
 body {
-  font-family: "roboto", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-    sans-serif;
+  font-family: "roboto", "Gill Sans MT", "Trebuchet MS", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* nav.php */
+nav {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  border-bottom: 0.2rem solid #f1f1f1ec;
+  z-index: 100;
+}
+
+nav .navContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.8rem;
+  padding-bottom: 1.8rem;
+}
+
+.navContainer .navElements {
+  display: none;
+}
+
+.navContainer.show .sideNav {
+  display: flex;
+}
+
+.navContainer.show .fa-bars {
+  margin-right: 9rem;
+  color: #fff;
+}
+
+.navContainer .fa-bars {
+  font-size: 1.7rem;
+  cursor: pointer;
+  z-index: 40;
+  transition: all 0.2s ease-in-out;
+}
+
+.navContainer .fa-bars:hover {
+  transform: scale(1.1);
+}
+
+.navContainer .sideNav {
+  display: none;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 13rem;
+  background-color: #000;
+  color: #fff;
+  z-index: 35;
+}
+
+.sideNavRow i {
+  font-size: 1.3rem;
+}
+
+.sideNav ul {
+  margin-top: 6rem;
+}
+
+.sideNav ul .sideNavRow {
+  width: 7rem;
+  cursor: pointer;
+  margin-bottom: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sideNav li {
+  font-size: 1.1rem;
+}
+
+/* footer.php */
+footer {
+  text-align: center;
+  border-top: 1.5px solid black;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 3rem;
+}
+
+footer hr {
+  color: #f1f1f1ec;
+}
+
+.footerDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .footerDetails .footerText {
+  margin-bottom: 1.7rem;
+}
+
+.footerText .footerHeading {
+  margin-bottom: 1rem;
+}
+
+.footerSign {
+  margin-bottom: 1.7rem;
+  width: 14rem;
+}
+
+.footerSign h3 {
+  margin-bottom: 1rem;
+}
+
+.footerSign button {
+  height: 2.8rem;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.2rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 0.6rem;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.7rem;
+}
+
+.footerLinks .logoContainer {
+  display: flex;
+  margin-top: 1rem;
+  width: 13rem;
+  justify-content: space-between;
+}
+
+.logoContainer i {
+  cursor: pointer;
+}
+
+/* index.html */
 .landingPage .heroImage {
   height: 100vh;
   width: 100vw;
@@ -30,6 +187,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 0.6rem;
+  text-transform: capitalize;
   height: 18rem;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -46,6 +204,7 @@ body {
   margin-top: 0.7rem;
   display: flex;
   align-items: center;
+  text-transform: capitalize;
 }
 
 .landingPage .destinationSection {
@@ -70,15 +229,22 @@ body {
 }
 
 /* destinationDetail.html */
+
+.textContainer .message {
+  /* margin-top: 4rem; */
+  font-size: 1rem;
+  border: 1.4px solid black;
+  border-radius: 0.6rem;
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
 .destinationDetailsContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 7rem;
 }
-
-/* .destinationDetailsContainer .imageContainer {
-  position: relative;
-} */
 
 .imageContainer .largeImage {
   margin-bottom: 2rem;
@@ -98,7 +264,7 @@ body {
 
 .rightSection .textContainer {
   margin-bottom: 2rem;
-  height: 27rem;
+  height: 30rem;
   width: 25rem;
   padding: 3rem;
   border-radius: 0.6rem;
@@ -106,7 +272,7 @@ body {
 }
 
 .rightSection .viewButton {
-  margin-left: 6.5rem;
+  margin-left: 7.5rem;
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
@@ -116,11 +282,11 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
   border: none;
-  text-transform: uppercase;
 }
 
 .textContainer .bookButton {
   background-color: #000;
+  cursor: pointer;
   color: #fff;
   width: 100%;
   float: right;
@@ -133,12 +299,13 @@ body {
 
 .textContainer .landmarkList {
   list-style-type: circle;
-  margin-top: 1.1rem;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
 }
 
 .landmarkList li {
   font-size: 1.1rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .textContainer p {
@@ -149,7 +316,7 @@ body {
 .postFormContainer {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  padding-top: 6rem;
   margin-bottom: 2rem;
 }
 
@@ -186,6 +353,10 @@ body {
   padding: 0.3rem;
   border: 1px solid #7e7e7e;
   border-radius: 0.2rem;
+}
+
+.inputField #price {
+  appearance: textfield;
 }
 
 .inputField .imageContainer {
@@ -256,7 +427,7 @@ body {
   cursor: pointer;
   color: #fff;
   background-color: #000;
-  border-radius: 0.6rem;
+  border-radius: 0.4rem;
   border: none;
 }
 
@@ -264,14 +435,215 @@ body {
   height: 6rem;
 }
 
-/* .parentInputField .landmarkContainer {
+/* signup.php */
+.accountWrapper .accountContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.accountContainer .imageContainer {
+  position: relative;
+  height: 25rem;
+}
+
+.accountContainer .imageContainer img {
+  object-fit: cover;
+  height: 100%;
+  width: 20rem;
+  border-radius: 0.2rem;
+}
+
+.accountContainer .imageContainer .blur {
+  color: #fff;
+  padding: 1rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 60%;
+  width: 65%;
+  border-radius: 0.2rem;
+  backdrop-filter: blur(5.8px);
+  background: rgba(255, 255, 255, 0.21);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.blur i {
+  margin-right: 0.7rem;
+}
+
+.blur p {
   margin-top: 1rem;
 }
 
-.landmarkLabel {
+.accountContainer form {
+  width: 20rem;
+}
+
+.accountContainer .accountBtn {
+  width: 100%;
+  height: 2.7rem;
+  font-size: 1rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 0.2rem;
+  border: none;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.accountContainer .accountText {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.accountContainer .accountText p {
+  margin-top: 0.7rem;
+}
+
+.accountContainer .accountInput div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.accountInput div input {
+  height: 2.7rem;
+
   font-size: 1.1rem;
-} */
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border: 1px solid #7e7e7e;
+  border-radius: 0.2rem;
+}
+
+.accountInput label {
+  margin-bottom: 0.4rem;
+}
+
+.accountInput #password {
+  background-color: #f1f1f1ec;
+  border: none;
+  border-radius: 0.2rem;
+}
+
+/* bookedDestinations.php */
+.bookedDestinationWrapper {
+  padding-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookedDestinationWrapper .userDetailWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.bookedDestinationWrapper .userDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.12rem solid black;
+  border-radius: 5rem;
+  width: 15rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.userDetailWrapper .cost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.8rem;
+  margin-bottom: 1.7rem;
+  border: 0.12rem solid black;
+  border-radius: 5rem;
+  width: 15rem;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+.userDetail .identfier {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  border: 0.08rem solid black;
+  padding: 0.1rem;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 1rem;
+}
+
+.userDetail .username {
+  text-transform: capitalize;
+}
+
+.bookedDestinationWrapper .allBookings {
+  width: 17rem;
+}
+
+.allBookings .booking {
+  text-align: center;
+  margin-top: 1rem;
+  box-shadow: 0px 9px 4px rgb(215, 215, 215);
+  padding: 1rem;
+  width: 17rem;
+  border-radius: 0.6rem;
+}
+
+.allBookings .booking img {
+  width: 15rem;
+  height: 16rem;
+  object-fit: cover;
+  border-radius: 0.6rem;
+}
+
+.allBookings .booking .bookingText h1 {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.allBookings .booking .bookingText p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.bookingText .unbook {
+  margin-top: 0.6rem;
+  background-color: transparent;
+  padding: 0.2rem;
+  border: 1px solid black;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 480px) {
+  /* nav.php */
+  .navContainer .sideNav {
+    width: 17rem;
+  }
+
+  .navContainer.show .fa-bars {
+    margin-right: 12.5rem;
+    color: #fff;
+  }
+
+  .sideNav ul .sideNavRow {
+    width: 7.5em;
+  }
+
   /* index.html */
   .landingPage #destinationContainer {
     display: grid;
@@ -352,9 +724,78 @@ body {
     width: 28rem;
     padding: 1rem;
   }
+
+  /* signup.php */
+  .accountContainer .imageContainer {
+    height: 28rem;
+  }
+
+  .accountContainer .imageContainer img {
+    width: 23rem;
+    height: 100%;
+  }
+
+  .accountContainer form {
+    width: 23rem;
+  }
+
+  .accountContainer .accountBtn {
+    margin-top: 0.7rem;
+  }
+
+  .accountContainer .accountText p {
+    margin-top: 0.8rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
+  /* nav.php */
+  .navContainer .fa-bars {
+    display: none;
+  }
+
+  .navContainer.show .sideNav {
+    display: none;
+  }
+
+  .navContainer .navElements {
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-between;
+  }
+
+  .navContainer .navElements h2 {
+    margin-left: 1.5rem;
+  }
+
+  nav .navContainer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  /* footer.php */
+  footer {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .footerDetails {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .footerDetails .footerText {
+    width: 24rem;
+    text-align: start;
+  }
+
+  .footerSign {
+    width: 14rem;
+  }
+
   /* index.html */
   .landingPage #destinationContainer {
     grid-template-columns: repeat(3, 2fr);
@@ -366,16 +807,18 @@ body {
   }
 
   /* destinationDetails.html */
-
   #destinationDetails {
     height: 100vh;
     display: flex;
     align-items: center;
     padding: 1rem;
+    padding-top: 19rem;
+    margin-bottom: 22rem;
   }
 
   #destinationDetails .imageContainer {
     width: 55vw;
+    position: relative;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -383,26 +826,57 @@ body {
     row-gap: 1rem;
   }
 
-  .imageContainer .landmarkDetails {
-    position: absolute;
+  #destinationDetails .imageContainer {
+    position: relative;
   }
 
-  .imageContainer .landmarkDetails.show {
+  #destinationDetails .imageContainer .landmarkDetails {
+    position: absolute;
+    transform: translateX(-50%, -50%);
+    top: 25%;
+    left: 25%;
+    border: 1.3px solid black;
+    border-radius: 0.6rem;
+    background-color: #fff;
+    padding: 2rem;
+  }
+
+  #destinationDetails .imageContainer .landmarkDetails.show {
     display: flex;
   }
 
-  .imageContainer .landmarkDetails img {
-    width: 8rem;
+  #destinationDetails .imageContainer .landmarkDetails img {
+    width: 14rem;
+    height: 14rem;
+    border-radius: 0.6rem;
+    object-fit: cover;
+    margin-right: 2rem;
   }
 
-  .imageContainer .largeImage {
+  #destinationDetails .imageContainer .landmarkDetails h3 {
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+  }
+
+  .landmarkDetails .fa-xmark {
+    cursor: pointer;
+    font-size: 1rem;
+    position: absolute;
+    right: 1rem;
+  }
+
+  .landmarkDetails .landmarkDetailsText {
+    width: 13rem;
+  }
+
+  #destinationDetails .imageContainer .largeImage {
     width: 25rem;
     height: 30rem;
     margin-bottom: 0;
     grid-row: 1 / span 2;
   }
 
-  .imageContainer .smallImage {
+  #destinationDetails .imageContainer .smallImage {
     display: block;
     cursor: pointer;
     border-radius: 0.6rem;
@@ -421,6 +895,7 @@ body {
     margin-left: 4rem;
     margin-right: 4rem;
     margin-bottom: 0;
+    padding-bottom: 22rem;
   }
 
   .rightSection .viewButton {
@@ -449,7 +924,7 @@ body {
 
   .landmarkList li {
     font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.1rem;
   }
 
   .textContainer p {
@@ -523,15 +998,95 @@ body {
   .postFormContainer .formHeading {
     margin-bottom: 2.7rem;
   }
+
+  /* signup.php */
+  .accountWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .accountWrapper .accountContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 48rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .accountContainer .imageContainer {
+    height: 36rem;
+  }
+
+  .accountContainer .imageContainer img {
+    width: 24rem;
+    height: 100%;
+  }
+
+  .accountContainer .imageContainer .blur {
+    height: 40%;
+    width: 75%;
+  }
+
+  .accountContainer form {
+    width: 18rem;
+  }
+
+  .accountContainer .accountBtn {
+    margin-top: 0.8rem;
+  }
+
+  .accountContainer .accountText {
+    margin-top: 0;
+  }
+
+  .accountContainer .accountText p {
+    margin-top: 1rem;
+  }
+
+  .accountContainer .accountInput div {
+    margin-bottom: 1.6rem;
+  }
+
+  .accountInput label {
+    margin-bottom: 0.8rem;
+  }
+
+  /* bookedDestinations.php */
+  .bookedDestinationWrapper .allBookings {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    width: 40rem;
+  }
 }
 
 @media screen and (min-width: 1024px) {
+  /* footer.php */
+  footer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 3rem;
+  }
+
+  .footerLinks {
+    padding-top: 1.4rem;
+  }
+
   /* index.html */
   .landingPage #destinationContainer {
     grid-template-columns: repeat(4, 2fr);
   }
 
   /* destinationDetails.html */
+  #destinationDetails {
+    padding-top: 3rem;
+    margin-bottom: 0rem;
+  }
+
   .destinationDetailsContainer {
     display: flex;
     flex-direction: row;
@@ -572,6 +1127,87 @@ body {
 
   .landmarkContainer .inputField {
     width: 35rem;
+  }
+
+  /* signup.php */
+  .accountWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    overflow: hidden;
+  }
+
+  .accountWrapper .accountContainer {
+    width: 100%;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+  }
+
+  .accountContainer .imageContainer {
+    height: 100vh;
+  }
+
+  .accountContainer .imageContainer img {
+    object-fit: cover;
+    width: 50rem;
+    height: 100%;
+    border-radius: 0rem;
+  }
+
+  .accountContainer .formContainer {
+    width: 50rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .formContainer p {
+    margin-top: 1.1rem;
+    font-size: 1.4rem;
+  }
+
+  .accountContainer .imageContainer .blur {
+    padding: 2rem;
+    height: 60%;
+  }
+
+  .blur h2 {
+    font-size: 3.5rem;
+  }
+
+  .blur p {
+    font-size: 2rem;
+  }
+
+  .accountContainer form {
+    width: 30rem;
+  }
+
+  .accountContainer .accountText h1 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .accountContainer .accountText h2 {
+    font-size: 2rem;
+  }
+
+  .accountContainer .accountText p {
+    font-size: 1.4rem;
+  }
+
+  .accountInput label {
+    font-size: 1.3rem;
+  }
+
+  .accountContainer .accountBtn {
+    height: 3.2rem;
+    font-size: 1.3rem;
+  }
+
+  /* bookedDestinations.php */
+  .bookedDestinationWrapper .allBookings {
+    grid-template-columns: repeat(3, 1fr);
+    width: 73rem;
   }
 }
 /* min-width means, the css will affect the content in screen above the said px e.g 480px */
