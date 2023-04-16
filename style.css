@@ -229,11 +229,21 @@ footer .footerDetails .footerText {
 }
 
 /* destinationDetail.html */
+
+.textContainer .message {
+  /* margin-top: 4rem; */
+  font-size: 1rem;
+  border: 1.4px solid black;
+  border-radius: 0.6rem;
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
 .destinationDetailsContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 8rem;
+  padding-top: 7rem;
 }
 
 .imageContainer .largeImage {
@@ -254,7 +264,7 @@ footer .footerDetails .footerText {
 
 .rightSection .textContainer {
   margin-bottom: 2rem;
-  height: 27rem;
+  height: 30rem;
   width: 25rem;
   padding: 3rem;
   border-radius: 0.6rem;
@@ -262,7 +272,7 @@ footer .footerDetails .footerText {
 }
 
 .rightSection .viewButton {
-  margin-left: 6.5rem;
+  margin-left: 7.5rem;
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
@@ -272,7 +282,6 @@ footer .footerDetails .footerText {
   font-size: 1.5rem;
   cursor: pointer;
   border: none;
-  text-transform: uppercase;
 }
 
 .textContainer .bookButton {
@@ -290,12 +299,13 @@ footer .footerDetails .footerText {
 
 .textContainer .landmarkList {
   list-style-type: circle;
-  margin-top: 1.1rem;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
 }
 
 .landmarkList li {
   font-size: 1.1rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .textContainer p {
@@ -531,7 +541,9 @@ footer .footerDetails .footerText {
 
 .bookedDestinationWrapper .userDetailWrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
 }
 
 .bookedDestinationWrapper .userDetail {
@@ -543,6 +555,19 @@ footer .footerDetails .footerText {
   width: 15rem;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
+}
+
+.userDetailWrapper .cost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.8rem;
+  margin-bottom: 1.7rem;
+  border: 0.12rem solid black;
+  border-radius: 5rem;
+  width: 15rem;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
 }
 
 .userDetail .identfier {
@@ -563,12 +588,16 @@ footer .footerDetails .footerText {
 }
 
 .bookedDestinationWrapper .allBookings {
-  width: 15rem;
+  width: 17rem;
 }
 
 .allBookings .booking {
   text-align: center;
   margin-top: 1rem;
+  box-shadow: 0px 9px 4px rgb(215, 215, 215);
+  padding: 1rem;
+  width: 17rem;
+  border-radius: 0.6rem;
 }
 
 .allBookings .booking img {
@@ -578,12 +607,26 @@ footer .footerDetails .footerText {
   border-radius: 0.6rem;
 }
 
-.allBookings .booking .bookingText p{
+.allBookings .booking .bookingText h1 {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.allBookings .booking .bookingText p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+
+.bookingText .unbook {
+  margin-top: 0.6rem;
+  background-color: transparent;
+  padding: 0.2rem;
+  border: 1px solid black;
+  border-radius: 0.2rem;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 480px) {
@@ -792,10 +835,10 @@ footer .footerDetails .footerText {
     transform: translateX(-50%, -50%);
     top: 25%;
     left: 25%;
-    border: 2px solid black;
+    border: 1.3px solid black;
     border-radius: 0.6rem;
     background-color: #fff;
-    padding: 1rem;
+    padding: 2rem;
   }
 
   #destinationDetails .imageContainer .landmarkDetails.show {
@@ -811,7 +854,8 @@ footer .footerDetails .footerText {
   }
 
   #destinationDetails .imageContainer .landmarkDetails h3 {
-    margin-bottom: 0.4rem;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
   }
 
   .landmarkDetails .fa-xmark {
@@ -819,6 +863,10 @@ footer .footerDetails .footerText {
     font-size: 1rem;
     position: absolute;
     right: 1rem;
+  }
+
+  .landmarkDetails .landmarkDetailsText {
+    width: 13rem;
   }
 
   #destinationDetails .imageContainer .largeImage {
@@ -876,7 +924,7 @@ footer .footerDetails .footerText {
 
   .landmarkList li {
     font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.1rem;
   }
 
   .textContainer p {
@@ -1004,6 +1052,14 @@ footer .footerDetails .footerText {
   .accountInput label {
     margin-bottom: 0.8rem;
   }
+
+  /* bookedDestinations.php */
+  .bookedDestinationWrapper .allBookings {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    width: 40rem;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -1027,7 +1083,7 @@ footer .footerDetails .footerText {
 
   /* destinationDetails.html */
   #destinationDetails {
-    padding-top: 0rem;
+    padding-top: 3rem;
     margin-bottom: 0rem;
   }
 
@@ -1142,9 +1198,16 @@ footer .footerDetails .footerText {
   .accountInput label {
     font-size: 1.3rem;
   }
+
   .accountContainer .accountBtn {
     height: 3.2rem;
     font-size: 1.3rem;
+  }
+
+  /* bookedDestinations.php */
+  .bookedDestinationWrapper .allBookings {
+    grid-template-columns: repeat(3, 1fr);
+    width: 73rem;
   }
 }
 /* min-width means, the css will affect the content in screen above the said px e.g 480px */

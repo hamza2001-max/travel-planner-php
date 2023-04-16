@@ -17,7 +17,7 @@ create table landmark (
 
 create table users (
 	user_id int AUTO_INCREMENT PRIMARY KEY,
-    user_full_name varchar(35) NOT NULL,
+    user_full_name varchar(35) NOT NULL UNIQUE,
     user_password varchar(35) NOT NULL
 );
 

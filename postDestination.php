@@ -5,7 +5,7 @@ $formError = "";
 $formSuccess = "";
 print_r($_SESSION['user']);
 
-if(!isset($_SESSION['admin'])) header("Location: http://localhost/travelPlanner/index.php");
+if (!isset($_SESSION['admin'])) header("Location: http://localhost/travelPlanner/index.php");
 
 if (isset($_POST["publish"])) {
     $location = $description = $price =  $mainImage =  $mainImage = "";
@@ -45,20 +45,19 @@ if (isset($_POST["publish"])) {
             mysqli_stmt_bind_param($stmt1, "ssis", $location, $description, $price, $mainImage);
             mysqli_stmt_execute($stmt1);
             if (mysqli_stmt_affected_rows($stmt1) > 0) {
-                $formSuccess = "row affected";
-            } else {
-                $formError = "Could not submit values";
-            }
-            $landmarkTotal = count($landmarkImages);
-            for ($i = 0; $i < $landmarkTotal; $i++) {
-                mysqli_stmt_bind_param($stmt2, "ssss", $landmarkTitle[$i], $landmarkDesc[$i], $landmarkImages[$i], $location);
-                mysqli_stmt_execute($stmt2);
-                if (mysqli_stmt_affected_rows($stmt2) > 0) {
-                    $formSuccess = "row affected";
-                    // header("Location: http://localhost/travelPlanner/");
-                } else {
-                    $formError = "Could not submit values";
+                $landmarkTotal = count($landmarkImages);
+                for ($i = 0; $i < $landmarkTotal; $i++) {
+                    mysqli_stmt_bind_param($stmt2, "ssss", $landmarkTitle[$i], $landmarkDesc[$i], $landmarkImages[$i], $location);
+                    mysqli_stmt_execute($stmt2);
+                    if (mysqli_stmt_affected_rows($stmt2) > 0) {
+                        $formSuccess = "destination successfully published.";
+                        // header("Location: http://localhost/travelPlanner/");
+                    } else {
+                        $formError = "Could not submit values.";
+                    }
                 }
+            } else {
+                $formError = "Could not submit values.";
             }
             mysqli_stmt_close($stmt1);
             mysqli_stmt_close($stmt2);
@@ -172,5 +171,6 @@ if (isset($_POST["publish"])) {
     </form>
 </section>
 </body>
+
 </html>
 <script type="module" src="postDestination.js"></script>
