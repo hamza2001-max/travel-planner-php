@@ -33,6 +33,14 @@ require_once './includes/database.php';
                 }
                 ?>
                 <?php
+                if (isset($_SESSION['user'])) { ?>
+                    <a href="./bookedDestinations.php" style="color:black;">
+                        <h2>Booked</h2>
+                    </a>
+                <?php
+                }
+                ?>
+                <?php
                 if (isset($_SESSION['user']) or isset($_SESSION['admin'])) {
                 ?>
                     <a href="./logout.php" style="color:black;">
@@ -68,6 +76,17 @@ require_once './includes/database.php';
                             <i class="fa-solid fa-plus"></i>
                             <a href="./postDestination.php" style="color:white;">
                                 <li>Create</li>
+                            </a>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    <?php
+                    if (isset($_SESSION['user'])) { ?>
+                         <div class="sideNavRow">
+                         <i class="fa-sharp fa-solid fa-bookmark"></i>
+                            <a href="./bookedDestinations.php" style="color:white;">
+                                <li>Booked</li>
                             </a>
                         </div>
                     <?php

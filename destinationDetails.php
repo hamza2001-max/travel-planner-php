@@ -7,6 +7,20 @@ $sql_query_landmark = "SELECT * FROM landmark WHERE dest_name = '$dest_name'";
 $sql_query_destination = "SELECT * FROM destination WHERE dest_name = '$dest_name'";
 $result_landmark = mysqli_query($connection, $sql_query_landmark);
 $result_destination = mysqli_query($connection, $sql_query_destination);
+$form_error = '';
+if (isset($_SESSION['user'])) {
+    if (isset($_POST['bookDestination'])) {
+        $sql_query = "INSERT INTO bookedDestination (dest_name, user_id) values (?, ?)";
+        $stmt = mysqli_prepare($connection, $sql_query);
+        mysqli_stmt_bind_param($stmt, "si", $dest_name, $_SESSION['user']['user_id']);
+        mysqli_stmt_execute($stmt);
+        header('Location: http://localhost/travelPlanner/bookedDestinations.php');
+        exit;
+    }
+} else {
+    $form_error = "You need to login first";
+}
+
 ?>
 
 <div id="destinationDetails">
@@ -54,12 +68,15 @@ $result_destination = mysqli_query($connection, $sql_query_destination);
                                 <li><?= $row_landmark["land_name"] ?></li>
                             <?php } ?>
                         </ul>
-                        <button class="bookButton">Book now</button>
+                        <form method="post">
+                            <button class="bookButton" name="bookDestination" type="submit">Book now</button>
+                        </form>
                     </div>
                     <div class="textContainer description" style="display:none;">
                         <p><?= $row_destination['dest_description'] ?></p>
                     </div>
                 </div>
+                <?= $form_error ?>
             </div>
     <?php                    }
     } ?>
