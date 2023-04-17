@@ -29,6 +29,9 @@ require_once './includes/database.php';
                     <a href="./postDestination.php" style="color:black;">
                         <h2>Create</h2>
                     </a>
+                    <a href="./dashboard.php" style="color:black;">
+                        <h2>Dashboard</h2>
+                    </a>
                 <?php
                 }
                 ?>
@@ -78,13 +81,19 @@ require_once './includes/database.php';
                                 <li>Create</li>
                             </a>
                         </div>
+                        <div class="sideNavRow">
+                        <i class="fa-solid fa-chart-line"></i>
+                            <a href="./dashboard.php" style="color:white;">
+                                <li>DashB.</li>
+                            </a>
+                        </div>
                     <?php
                     }
                     ?>
                     <?php
                     if (isset($_SESSION['user'])) { ?>
-                         <div class="sideNavRow">
-                         <i class="fa-sharp fa-solid fa-bookmark"></i>
+                        <div class="sideNavRow">
+                            <i class="fa-sharp fa-solid fa-bookmark"></i>
                             <a href="./bookedDestinations.php" style="color:white;">
                                 <li>Booked</li>
                             </a>

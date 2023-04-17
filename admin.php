@@ -1,6 +1,5 @@
 <?php
 require_once './includes/database.php';
-$form_success = "";
 $form_error = "";
 
 if (isset($_POST["admin"])) {
@@ -42,19 +41,19 @@ if (isset($_POST["admin"])) {
     <section class="accountWrapper">
         <section class="accountContainer">
             <div class="imageContainer">
-                <img src="./staticModels/landingImage.jpg" alt="">
+                <img src="./staticModels/plane3.jpg" alt="">
                 <div class="blur">
                     <h2>
-                        <i class="fa-sharp fa-solid fa-play"></i>Plan and book your trips with ease
-                        <span style="color:black;"> with travelPlanner.</span>
+                        <i class="fa-sharp fa-solid fa-play"></i>Welcome back Admin,
+                        <span style="color:black;"> to travelPlanner.</span>
                     </h2>
-                    <p>Access the site.</p>
+                    <p>Continue by logging in.</p>
                 </div>
             </div>
             <section class="formContainer">
                 <form action="" method="post">
                     <div class="accountText">
-                        <h2>Welcome Admin.</h2>
+                        <h2>Welcome back Admin.</h2>
                         <h2>Login to continue.</h2>
                         <p>Login as a <a href="/travelPlanner/login.php" style="
                         font-weight: 500; 
@@ -62,8 +61,7 @@ if (isset($_POST["admin"])) {
                         text-decoration: underline; ">User.</a></p>
                     </div>
                     <div class="accountInput">
-                        <?= $form_error ?>
-                        <?= $form_success ?>
+                        <p class="error"><?= $form_error ?> </p>
                         <div>
                             <label for="fullName">Full Name</label>
                             <input type="text" name="fullName" id="userName" required>
@@ -74,6 +72,11 @@ if (isset($_POST["admin"])) {
                         </div>
                     </div>
                     <button class="accountBtn" name="admin">Login</button>
+                    <p style="display: flex;
+                        justify-content: center;">Go to <a href="/travelPlanner/index.php" style="font-weight: 500; 
+                        color:black;
+                        text-decoration: underline;
+                        margin-left: 0.5rem"> Home.</a></p>
                 </form>
             </section>
         </section>

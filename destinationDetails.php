@@ -33,7 +33,6 @@ if (isset($_SESSION['user'])) {
 
 ?>
 
-<!-- <section class="destinationDetailsContainer"> -->
 <div id="destinationDetails">
     <?php
     if ($result_landmark->num_rows > 0 && $result_destination->num_rows > 0) {
@@ -100,6 +99,5 @@ if (isset($_SESSION['user'])) {
     <?php                    }
     } ?>
 </div>
-<!-- </section> -->
 <script src="destinationDetails.js" type="module"></script>
 <?php require_once './footer.php' ?>
