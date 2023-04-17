@@ -23,8 +23,8 @@
   - [x] fix the styling(the access margin at the end and the min:1024px).
   - [x] complete the signup functionalities.
 
-- [ ] admin.php
-  - [ ] change the picture for the admin login.
+- [x] admin.php
+  - [x] change the picture for the admin login.
   - [x] complete the admin login functionalities.
   - [x] copy the design from signup.
 

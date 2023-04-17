@@ -60,8 +60,8 @@ if (isset($_POST["login"])) {
                         color:black;
                         text-decoration: underline; ">
                         Signup.</a></p>
-                        <h1>OR</h1>
-                        <p>Login as an admin. <a href="/travelPlanner/admin.php" style="font-weight: 500; 
+                        <!-- <h1>OR</h1> -->
+                        <p>Login as an <a href="/travelPlanner/admin.php" style="font-weight: 500; 
                         color:black;
                         text-decoration: underline; ">
                         Admin.</a></p>
@@ -78,10 +78,11 @@ if (isset($_POST["login"])) {
                         </div>
                     </div>
                     <button class="accountBtn" name="login">Login</button>
-                    <p>Go to <a href="/travelPlanner/index.php" style="font-weight: 500; 
+                    <p style="display: flex;
+                        justify-content: center;">Go to <a href="/travelPlanner/index.php" style="font-weight: 500; 
                         color:black;
-                        text-decoration: underline; ">
-                        Home.</a></p>
+                        text-decoration: underline;
+                        margin-left: 0.5rem"> Home.</a></p>
                 </form>
             </section>
         </section>

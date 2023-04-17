@@ -64,7 +64,7 @@ if (isset($_POST["signup"])) {
                 <img src="./staticModels/landingImage.jpg" alt="">
                 <div class="blur">
                     <h2>
-                        <i class="fa-sharp fa-solid fa-play"></i>Plan and book your trips with ease
+                        <i class="fa-sharp fa-solid fa-play"></i>Make your planning and reserve vacations easier
                         <span style="color:black;"> with travelPlanner.</span>
                     </h2>
                     <p>join our community.</p>
@@ -93,10 +93,11 @@ if (isset($_POST["signup"])) {
                         </div>
                     </div>
                     <button class="accountBtn" name="signup">Signup</button>
-                    <p>Go to <a href="/travelPlanner/index.php" style="font-weight: 500; 
+                    <p style="display: flex;
+                        justify-content: center;">Go to <a href="/travelPlanner/index.php" style="font-weight: 500; 
                         color:black;
-                        text-decoration: underline; ">
-                            Home.</a></p>
+                        text-decoration: underline;
+                        margin-left: 0.5rem"> Home.</a></p>
                 </form>
             </section>
         </section>

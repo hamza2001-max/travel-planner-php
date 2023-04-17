@@ -24,12 +24,12 @@ if (isset($_SESSION['user'])) {
 ?>
 <section class="bookedDestinationWrapper">
     <div class="userDetailWrapper">
-        <div class="userDetail">
-            <?php if (!empty($user)) { ?>
+        <?php if (!empty($user)) { ?>
+            <div class="userDetail">
                 <h1 class="identfier"><?= $user['user_full_name'][0] ?></h1>
                 <h1 class="username"><?= $user['user_full_name'] ?></h1>
-            <?php } ?>
-        </div>
+            </div>
+        <?php } ?>
         <?php
         if ($result3->num_rows > 0) {
             $row3 = mysqli_fetch_assoc($result3);
