@@ -15,7 +15,7 @@ if (isset($_POST["admin"])) {
                 $_SESSION['admin'] = 'admin';
                 header("Location: http://localhost/travelPlanner/index.php");
             } else {
-                $form_error = "user was not found";
+                $form_error = "User was not found.";
             }
             mysqli_stmt_close($stmt);
         }

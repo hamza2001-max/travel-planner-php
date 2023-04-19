@@ -9,8 +9,8 @@ $result_landmark = mysqli_query($connection, $sql_query_landmark);
 $result_destination = mysqli_query($connection, $sql_query_destination);
 $form_error = '';
 $form_message = '';
-if (isset($_SESSION['user'])) {
-    if (isset($_POST['bookDestination'])) {
+if (isset($_POST['bookDestination'])) {
+    if (isset($_SESSION['user'])) {
         $sql_query1 = "SELECT * FROM bookedDestination WHERE dest_name = ? AND user_id = ?";
         $stmt1 = mysqli_prepare($connection, $sql_query1);
         mysqli_stmt_bind_param($stmt1, "si", $dest_name, $_SESSION['user']['user_id']);
@@ -26,78 +26,86 @@ if (isset($_SESSION['user'])) {
             header('Location: http://localhost/travelPlanner/destinationDetails.php?dest_name=' . $dest_name);
             exit;
         }
+    } else {
+        $form_error = "You need to login first";
     }
-} else {
-    $form_error = "You need to login first";
 }
 
 ?>
 
-<div id="destinationDetails">
+<section>
     <?php
-    if ($result_landmark->num_rows > 0 && $result_destination->num_rows > 0) {
-        while ($row_destination = mysqli_fetch_assoc($result_destination)) {
-            $destination_target_image = $target_dir . $row_destination["dest_image"];
+    if ($form_error) {
     ?>
-            <div class="destinationDetailsContainer">
-                <div class="imageContainer">
-                    <img src="<?= $destination_target_image ?>" alt=<?= $row_destination['dest_name'] ?> class="largeImage" />
-                    <?php
-                    while ($row_landmark = mysqli_fetch_assoc($result_landmark)) {
-                        $landmark_target_image = $target_dir . $row_landmark["land_image"];
-                    ?>
-                        <div>
-                            <img src="<?= $landmark_target_image ?>" class="smallImage" onclick="toggleDetail(<?= $row_landmark['land_id'] ?>)" />
-                            <div class="landmarkDetails" id="destinationDetail<?= $row_landmark["land_id"] ?>">
-                                <img src="<?= $landmark_target_image ?>" />
-                                <i class="fa-solid fa-xmark" onclick="toggleDetail(<?= $row_landmark['land_id'] ?>)"></i>
-                                <div class="landmarkDetailsText">
-                                    <h3>Visit <?= $row_landmark['land_name'] ?></h3>
-                                    <p><?= $row_landmark['land_description'] ?></p>
+        <p class="error" style="width: 100%; position: absolute; 
+    text-align: center; top: 15%; font-size: 1.3rem;"><?= $form_error ?> </p>
+    <?php
+    } ?>
+    <div id="destinationDetails">
+        <?php
+        if ($result_landmark->num_rows > 0 && $result_destination->num_rows > 0) {
+            while ($row_destination = mysqli_fetch_assoc($result_destination)) {
+                $destination_target_image = $target_dir . $row_destination["dest_image"];
+        ?>
+                <div class="destinationDetailsContainer">
+                    <div class="imageContainer">
+                        <img src="<?= $destination_target_image ?>" alt=<?= $row_destination['dest_name'] ?> class="largeImage" />
+                        <?php
+                        while ($row_landmark = mysqli_fetch_assoc($result_landmark)) {
+                            $landmark_target_image = $target_dir . $row_landmark["land_image"];
+                        ?>
+                            <div>
+                                <img src="<?= $landmark_target_image ?>" class="smallImage" onclick="toggleDetail(<?= $row_landmark['land_id'] ?>)" />
+                                <div class="landmarkDetails" id="destinationDetail<?= $row_landmark["land_id"] ?>">
+                                    <img src="<?= $landmark_target_image ?>" />
+                                    <i class="fa-solid fa-xmark" onclick="toggleDetail(<?= $row_landmark['land_id'] ?>)"></i>
+                                    <div class="landmarkDetailsText">
+                                        <h3>Visit <?= $row_landmark['land_name'] ?></h3>
+                                        <p><?= $row_landmark['land_description'] ?></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php }
-                    ?>
-                </div>
-                <div class="rightSection">
-                    <div class="viewButton">
-                        <button id="overviewBtn">overview</button> / <button id="descriptionBtn">description</button>
+                        <?php }
+                        ?>
                     </div>
-                    <div class="textContainer overview">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-                            <h1 style="margin-bottom: 1.5rem; text-transform: capitalize;">
-                                <?= $row_destination['dest_name'] ?></h1>
-                            <h1>$<?= $row_destination['dest_cost'] ?></h1>
+                    <div class="rightSection">
+                        <div class="viewButton">
+                            <button id="overviewBtn">overview</button> / <button id="descriptionBtn">description</button>
                         </div>
-                        <ul class="landmarkList">
-                            <h3>Destinations To Visit</h3>
+                        <div class="textContainer overview">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <h1 style="margin-bottom: 1.5rem; text-transform: capitalize;">
+                                    <?= $row_destination['dest_name'] ?></h1>
+                                <h1>$<?= $row_destination['dest_cost'] ?></h1>
+                            </div>
+                            <ul class="landmarkList">
+                                <h3>Destinations To Visit</h3>
+                                <?php
+                                mysqli_data_seek($result_landmark, 0);
+                                while ($row_landmark = mysqli_fetch_assoc($result_landmark)) {
+                                ?>
+                                    <li>-<?= $row_landmark["land_name"] ?></li>
+                                <?php } ?>
+                            </ul>
                             <?php
-                            mysqli_data_seek($result_landmark, 0);
-                            while ($row_landmark = mysqli_fetch_assoc($result_landmark)) {
+                            if ($form_message) {
                             ?>
-                                <li>-<?= $row_landmark["land_name"] ?></li>
-                            <?php } ?>
-                        </ul>
-                        <?php
-                        if ($form_message) {
-                        ?>
-                            <p class="message"><?= $form_message ?></p>
-                        <?php
-                        }
-                        ?>
-                        <form method="post">
-                            <button class="bookButton" name="bookDestination" type="submit">Book now</button>
-                        </form>
-                    </div>
-                    <div class="textContainer description" style="display:none;">
-                        <p><?= $row_destination['dest_description'] ?></p>
+                                <p class="message"><?= $form_message ?></p>
+                            <?php
+                            }
+                            ?>
+                            <form method="post">
+                                <button class="bookButton" name="bookDestination" type="submit">Book now</button>
+                            </form>
+                        </div>
+                        <div class="textContainer description" style="display:none;">
+                            <p><?= $row_destination['dest_description'] ?></p>
+                        </div>
                     </div>
                 </div>
-                <?= $form_error ?>
-            </div>
-    <?php                    }
-    } ?>
-</div>
+        <?php                    }
+        } ?>
+    </div>
+</section>
 <script src="destinationDetails.js" type="module"></script>
 <?php require_once './footer.php' ?>

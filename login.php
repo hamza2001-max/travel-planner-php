@@ -1,7 +1,6 @@
 <?php
 require_once './includes/database.php';
 $form_error = "";
-// print_r($_SESSION['user']);
 
 if (isset($_POST["login"])) {
     $fullName = htmlspecialchars(trim($_POST["fullName"]));
@@ -16,12 +15,12 @@ if (isset($_POST["login"])) {
                 $_SESSION['user'] = $result->fetch_assoc();
                 header("Location: http://localhost/travelPlanner/index.php");
             } else {
-                $form_error = "user was not found";
+                $form_error = "User was not found.";
             }
             mysqli_stmt_close($stmt);
         }
     } else {
-        $form_error = "fill up the required inputs.";
+        $form_error = "Fill up the required inputs.";
     }
 }
 ?>
@@ -59,15 +58,14 @@ if (isset($_POST["login"])) {
                         <p>Don't have an account? <a href="/travelPlanner/signup.php" style="font-weight: 500; 
                         color:black;
                         text-decoration: underline; ">
-                        Signup.</a></p>
-                        <!-- <h1>OR</h1> -->
+                                Signup.</a></p>
                         <p>Login as an <a href="/travelPlanner/admin.php" style="font-weight: 500; 
                         color:black;
                         text-decoration: underline; ">
-                        Admin.</a></p>
+                                Admin.</a></p>
                     </div>
                     <div class="accountInput">
-                        <?= $form_error ?>
+                        <p class="error"><?= $form_error ?> </p>
                         <div>
                             <label for="userName">Username</label>
                             <input type="text" name="fullName" id="userName" required>
