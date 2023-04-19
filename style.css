@@ -25,6 +25,11 @@ li {
 
 .error {
   color: red;
+  margin-bottom: 1rem;
+}
+
+.success {
+  color: rgb(94, 201, 94);
 }
 
 /* nav.php */
@@ -166,6 +171,7 @@ footer .footerDetails .footerText {
   margin-top: 1rem;
   width: 13rem;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logoContainer i {
@@ -179,9 +185,57 @@ footer .footerDetails .footerText {
   object-fit: cover;
 }
 
+#destinationContainer {
+  margin-bottom: 4rem;
+}
 #destinationContainer .destinationItem {
   margin-bottom: 2rem;
+}
+
+.destinationItemContainer{
+  display: flex;
+  margin-top: 0.7rem;
+  justify-content: space-between;
+}
+
+.destinationItemContainer .dropdown{
+  position: relative;
+}
+.dropdown .ellipsis {
+  background-color: transparent;
+  border: none;
   cursor: pointer;
+  font-size: 1.6rem;
+}
+
+.dropdown .dropdownContent {
+  display: none;
+}
+
+.dropdown .dropdownContent button{
+  width: 6rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.5rem;
+  background-color: #fff;
+  box-shadow: rgba(38, 38, 62, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.dropdown .dropdownContent.show {
+  display: block;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  right: 0;
+  z-index: 100;
 }
 
 .destinationItem .imageWrapper {
@@ -205,7 +259,7 @@ footer .footerDetails .footerText {
 
 .destinationItem .destinationItemText {
   font-size: 1.2rem;
-  margin-top: 0.7rem;
+  /* margin-top: 0.7rem; */
   display: flex;
   align-items: center;
   text-transform: capitalize;
@@ -235,7 +289,6 @@ footer .footerDetails .footerText {
 /* destinationDetail.html */
 
 .textContainer .message {
-  /* margin-top: 4rem; */
   font-size: 1rem;
   border: 1.4px solid black;
   border-radius: 0.6rem;

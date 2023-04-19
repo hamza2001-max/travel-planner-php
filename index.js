@@ -1,5 +1,4 @@
-// window.redirectToDetail = function(id) {
-//     const url = `destinationDetails.php?id=${id}`;
-//     window.location.href = url;
-// }
-
+window.toggleDropDown = function(index) {
+    const dropdownContent = document.getElementById(`dropdownContent${index}`);
+    dropdownContent.classList.toggle('show');
+}

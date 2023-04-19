@@ -1,9 +1,8 @@
 <?php
 require_once './nav.php';
 require_once './includes/database.php';
-$formError = "";
+$form_error = "";
 $formSuccess = "";
-print_r($_SESSION['user']);
 
 if (!isset($_SESSION['admin'])) header("Location: http://localhost/travelPlanner/index.php");
 
@@ -34,13 +33,12 @@ if (isset($_POST["publish"])) {
         empty($landmarkDesc[1]) || empty($landmarkTitle[2]) || empty($landmarkDesc[2]) ||
         empty($landmarkTitle[3]) || empty($landmarkDesc[3]) || empty($landmarkImages)
     ) {
-        $formError = "Please fill all of the fields before publishing";
+        $form_error = "Fill all of the fields before publishing.";
     } elseif (!preg_match('/^[0-9]*$/', $price)) {
-        $formError = "Enter a numeric value for field price";
+        $form_error = "Enter a numeric value for field price.";
     } else {
         $sql_query1 = "INSERT INTO destination (dest_name, dest_description, dest_cost, dest_image) VALUES (?, ?, ?, ?)";
         $sql_query2 = "INSERT INTO landmark (land_name, land_description, land_image, dest_name) VALUES (?, ?, ?, ?)";
-
         if (($stmt1 = mysqli_prepare($connection, $sql_query1)) && ($stmt2 = mysqli_prepare($connection, $sql_query2))) {
             mysqli_stmt_bind_param($stmt1, "ssis", $location, $description, $price, $mainImage);
             mysqli_stmt_execute($stmt1);
@@ -50,14 +48,13 @@ if (isset($_POST["publish"])) {
                     mysqli_stmt_bind_param($stmt2, "ssss", $landmarkTitle[$i], $landmarkDesc[$i], $landmarkImages[$i], $location);
                     mysqli_stmt_execute($stmt2);
                     if (mysqli_stmt_affected_rows($stmt2) > 0) {
-                        $formSuccess = "destination successfully published.";
-                        // header("Location: http://localhost/travelPlanner/");
+                        $form_success = "Form successfully published.";
                     } else {
-                        $formError = "Could not submit values.";
+                        $form_error = "Could not submit values.";
                     }
                 }
             } else {
-                $formError = "Could not submit values.";
+                $form_error = "Could not submit values.";
             }
             mysqli_stmt_close($stmt1);
             mysqli_stmt_close($stmt2);
@@ -69,9 +66,20 @@ if (isset($_POST["publish"])) {
 
 <section class="postFormContainer">
     <form action="" method="post" enctype="multipart/form-data">
-        <h1 class="formHeading">Submit Your Post</h1>
-        <?= $formError ?>
-        <?= $formSuccess ?>
+        <h1 class="formHeading">Publish Your Post</h1>
+        <?php
+        if (isset($form_error)) {
+        ?>
+            <p class="error" style="margin-bottom: 2rem;
+        font-size: 1.3rem;"><?= $form_error ?></p>
+        <?php
+        }
+        if (isset($form_success)) {
+        ?>
+            <p class="success" style="margin-bottom: 2rem;
+        font-size: 1.3rem;"><?= $form_success ?></p>
+        <?php
+        } ?>
         <section class="parentInputField">
             <section>
                 <div class="inputField">

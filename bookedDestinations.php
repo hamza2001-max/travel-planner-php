@@ -14,10 +14,8 @@ if (isset($_SESSION['user'])) {
         exit;
     }
     $user_id = $_SESSION['user']['user_id'];
-    $sql_query1 = "SELECT * FROM bookedDestination WHERE user_id";
     $sql_query2 = "SELECT * FROM bookedDestination NATURAL JOIN destination WHERE user_id = $user_id";
     $sql_query3 = "SELECT sum(dest_cost) FROM bookedDestination NATURAL JOIN destination WHERE user_id = $user_id";
-    $result1 = mysqli_query($connection, $sql_query1);
     $result2 = mysqli_query($connection, $sql_query2);
     $result3 = mysqli_query($connection, $sql_query3);
 }

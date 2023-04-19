@@ -1,46 +1,51 @@
 <?php
 require_once './includes/database.php';
-$form_success = "";
 $form_error = "";
-$value = "";
 if (isset($_POST["signup"])) {
     $fullName = htmlspecialchars(trim($_POST["fullName"]));
     $password = htmlspecialchars(trim($_POST["password"]));
-
     if (!empty($fullName) || !empty($password)) {
         if (strlen($fullName) < 8 || strlen($password) < 8) {
-            $form_error = "fields must be equal or greater than eight characters.";
+            $form_error = "Fields must be equal or greater than eight characters.";
         } elseif (!preg_match("#[0-9]+#", $password)) {
             $form_error = "Password must include at least one number.";
         } elseif (!preg_match("#[a-zA-Z]+#", $password)) {
             $form_error = "Password must include at least one letter.";
         } else {
-            $sql_query1 = "INSERT INTO users (user_full_name, user_password) values (?, ?)";
-            if ($stmt = mysqli_prepare($connection, $sql_query1)) {
-                mysqli_stmt_bind_param($stmt, "ss", $fullName, $password);
-                mysqli_stmt_execute($stmt);
-                if (mysqli_stmt_affected_rows($stmt) > 0) {
-                    $form_success = "rows have been affected succesfully";
-                    $sql_query2 = "SELECT * FROM users where user_full_name = ? AND user_password = ?";
-                    if ($stmt2 = mysqli_prepare($connection, $sql_query2)) {
-                        mysqli_stmt_bind_param($stmt2, "ss", $fullName, $password);
-                        mysqli_stmt_execute($stmt2);
+            $sql_query3 = "SELECT * FROM users WHERE user_full_name = ?";
+            $stmt1 = mysqli_prepare($connection, $sql_query3);
+            mysqli_stmt_bind_param($stmt1, "s", $fullName);
+            mysqli_stmt_execute($stmt1);
+            $result = mysqli_stmt_get_result($stmt1);
+            if (mysqli_num_rows($result) > 0) {
+                $form_error = "User already exist with this name.";
+            } else {
+                $sql_query1 = "INSERT INTO users (user_full_name, user_password) values (?, ?)";
+                if ($stmt = mysqli_prepare($connection, $sql_query1)) {
+                    mysqli_stmt_bind_param($stmt, "ss", $fullName, $password);
+                    mysqli_stmt_execute($stmt);
+                    if (mysqli_stmt_affected_rows($stmt) > 0) {
+                        $sql_query2 = "SELECT * FROM users where user_full_name = ? AND user_password = ?";
+                        if ($stmt2 = mysqli_prepare($connection, $sql_query2)) {
+                            mysqli_stmt_bind_param($stmt2, "ss", $fullName, $password);
+                            mysqli_stmt_execute($stmt2);
+                        } else {
+                            $form_error = "Error occured during searching of the user in db.";
+                        }
+                        $result = mysqli_stmt_get_result($stmt2);
+                        if ($result->num_rows == 1) {
+                            $_SESSION['user'] = $result->fetch_assoc();
+                            header("Location: http://localhost/travelPlanner/index.php");
+                        }
                     } else {
-                        $form_error = "error occured during searching of the user in db.";
+                        $form_error = "Error occured";
                     }
-                    $result = mysqli_stmt_get_result($stmt2);
-                    if ($result->num_rows == 1) {
-                        $_SESSION['user'] = $result->fetch_assoc();
-                        header("Location: http://localhost/travelPlanner/index.php");
-                    }
-                } else {
-                    $form_error = "error occured";
+                    mysqli_stmt_close($stmt);
                 }
-                mysqli_stmt_close($stmt);
             }
         }
     } else {
-        $form_error = "fill up the required inputs.";
+        $form_error = "Fill up the required inputs.";
     }
 }
 ?>
@@ -81,8 +86,7 @@ if (isset($_POST["signup"])) {
                         text-decoration: underline; ">Login.</a></p>
                     </div>
                     <div class="accountInput">
-                        <?= $form_error ?>
-                        <?= $form_success ?>
+                        <p class="error"><?= $form_error ?> </p>
                         <div>
                             <label for="fullName">Full Name</label>
                             <input type="text" name="fullName" id="userName" required>
